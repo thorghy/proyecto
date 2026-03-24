@@ -8,7 +8,8 @@ import java.util.Scanner;
  */
 public class App {
 
-    static int contadorIDEvento = 0;
+    static int contadorIdEvento = 0;
+    static int contadorIdGaleria = 0;
     public static void main(String[] args) throws Exception {
         Scanner teclado = new Scanner(System.in);
 
@@ -41,13 +42,13 @@ public class App {
                     usuarios = removeUsuario(teclado, usuarios);
                     break;
                 case 3:
-                    eventos = addEvento(teclado, eventos, contadorIDEvento);
+                    eventos = addEvento(teclado, eventos, contadorIdEvento);
                     break;
                 case 4:
                     eventos = removeEvento(teclado, eventos);
                     break;
                 case 5:
-                    addGaleria();
+                    eventos = addGaleria(teclado, eventos);
                     break;
                 case 6:
                     removeGaleria();
@@ -130,14 +131,14 @@ public class App {
         System.out.println("Introduzca la descripción...");
         String descripcion = teclado.nextLine();
 
-        Evento evento = new Evento(contadorIDEvento, fecha, titulo, ubicacion, descripcion);
+        Evento evento = new Evento(contadorIdEvento, fecha, titulo, ubicacion, descripcion);
 
         if (eventos.containsKey(evento.getId())) {
             System.out.println("El evento ya existe.");
         } else {
             eventos.put(evento.getId(), evento);
             System.out.println("Evento creado correctamente");
-            contadorIDEvento++;
+            contadorIdEvento++;
         }
         return eventos;
     }
@@ -164,8 +165,43 @@ public class App {
         return eventos;
     }
 
-    public static void addGaleria() {
+    public static HashMap<Integer, Evento> addGaleria(Scanner teclado, HashMap<Integer, Evento> eventos) {
+        // Ver si hay eventos
+        if (eventos.isEmpty()) {
+            System.out.println("No hay eventos disponibles.");
+            return eventos;
+        }
 
+        System.out.println("- - - Creación de galería - - -");
+        // Mostrar eventos
+        for (Map.Entry<Integer, Evento> evento : eventos.entrySet()) {
+            System.out.println(evento.getKey() + ": " + evento.getValue().getTitulo());
+        }
+
+        // Selección de evento
+        System.out.println("Introduzca el ID del evento al que quiere añadirle una galería...");
+        int idEvento = teclado.nextInt();
+        teclado.nextLine();
+
+        // Ver si existe el evento seleccionado
+        if (!eventos.containsKey(idEvento))  {
+            System.out.println("El ID introducido no es correcto.");
+            return eventos;
+        }
+
+        // Introducir datos de la galería
+        System.out.println("Introduzca el título de la galería...");
+        String titulo = teclado.nextLine();
+
+        Galeria galeria = new Galeria(contadorIdGaleria, titulo, idEvento);
+        HashMap<Integer, Galeria> galeriasEvento = eventos.get(idEvento).getGalerias();
+
+        // Añadir galería a la colección de galerías
+        galeriasEvento.put(galeria.getId(), galeria);
+        System.out.println("Galería creada correctamente.");
+        contadorIdGaleria++;
+
+        return eventos;
     }
 
     public static void removeGaleria() {

@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * @author Héctor García Menéndez
@@ -11,7 +11,7 @@ public class Evento {
     private String titulo;
     private String ubicacion;
     private String descripcion;
-    private ArrayList<Galeria> galerias;
+    private HashMap<Integer, Galeria> galerias;
 
     /* GETTERS */
     public int getId() {
@@ -29,7 +29,7 @@ public class Evento {
     public String getDescripcion() {
         return descripcion;
     }
-    public ArrayList<Galeria> getGalerias() {
+    public HashMap<Integer, Galeria> getGalerias() {
         return galerias;
     }
 
@@ -49,7 +49,7 @@ public class Evento {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    public void setGalerias(ArrayList<Galeria> galerias) {
+    public void setGalerias(HashMap<Integer, Galeria> galerias) {
         this.galerias = galerias;
     }
     
@@ -60,7 +60,7 @@ public class Evento {
         this.titulo = titulo;
         this.ubicacion = ubicacion;
         this.descripcion = descripcion;
-        this.galerias = new ArrayList<Galeria>();
+        this.galerias = new HashMap<Integer, Galeria>();
     }
 
     /* MÉTODOS */
