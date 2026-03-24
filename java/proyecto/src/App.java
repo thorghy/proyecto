@@ -1,10 +1,11 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 /**
  * @author Héctor García Menéndez
- * @version 1.1
+ * @version 1.2
  */
 public class App {
 
@@ -15,6 +16,7 @@ public class App {
 
         HashMap<String, Usuario> usuarios = new HashMap<>();
         HashMap<Integer, Evento> eventos = new HashMap<>();
+        ArrayList<Favorito> favoritos = new ArrayList<>();
 
         int resp;
         do {
@@ -54,16 +56,16 @@ public class App {
                     eventos = removeGaleria(teclado, eventos);
                     break;
                 case 7:
-                    addFavorito();
+                    favoritos = addFavorito(teclado, eventos, usuarios, favoritos);
                     break;
                 case 8:
-                    removeFavorito();
+                    favoritos = removeFavorito(teclado, favoritos);
                     break;
                 case 9:
                     System.out.println("Saliendo...");
                     break;
                 default:
-                    // CUANDO LA OPCION NO ES VALIDA
+                    System.out.println("Opción no válida. Introduzca una opción entre [1] y [8]. Introduzca [9] para salir.");
                     break;
             }
 
@@ -149,9 +151,8 @@ public class App {
             return eventos;
         }
 
-        for (Map.Entry<Integer, Evento> evento : eventos.entrySet()) {
-            System.out.println(evento.getKey() + ": " + evento.getValue().getTitulo());
-        }
+        // Mostrar eventos
+        mostrarEventos(eventos);
 
         System.out.println("Introduzca el ID del evento que desea eliminar...");
         int id = teclado.nextInt();
@@ -174,10 +175,7 @@ public class App {
 
         System.out.println("- - - Creación de galería - - -");
         // Mostrar eventos
-        for (Map.Entry<Integer, Evento> evento : eventos.entrySet()) {
-            System.out.println(evento.getKey() + ": " + evento.getValue().getTitulo());
-        }
-
+        mostrarEventos(eventos);
 
         int idEvento = seleccionarEvento(teclado, eventos);
         if (idEvento == -1) return eventos;
@@ -207,9 +205,7 @@ public class App {
 
         System.out.println("- - - Borrado de galería - - -");
         // Mostrar eventos
-        for (Map.Entry<Integer, Evento> evento : eventos.entrySet()) {
-            System.out.println(evento.getKey() + ": " + evento.getValue().getTitulo());
-        }
+        mostrarEventos(eventos);
 
         // Selección de evento. Si el evento no existe se sale de la opción
         int idEvento = seleccionarEvento(teclado, eventos);
@@ -223,9 +219,7 @@ public class App {
         }
 
         // Mostrar galerías
-        for (Map.Entry<Integer, Galeria> galeria : evento.getGalerias().entrySet()) {
-            System.out.println(galeria.getKey() + ": " + galeria.getValue().getTitulo());
-        }
+        mostrarGalerias(evento);
 
         // Selección de galería. Si la galería no existe se sale de la opción
         int idGaleria = seleccionarGaleria(teclado, evento);
@@ -239,7 +233,7 @@ public class App {
 
     public static int seleccionarEvento(Scanner teclado, HashMap<Integer, Evento> eventos) {
         // Selección de evento
-        System.out.println("Introduzca el ID del evento al que quiere añadirle una galería...");
+        System.out.println("Introduzca el ID del evento que quiere seleccionar...");
         int idEvento = teclado.nextInt();
         teclado.nextLine();
 
@@ -253,7 +247,7 @@ public class App {
 
     public static int seleccionarGaleria(Scanner teclado, Evento evento) {
         // Selección de galería
-        System.out.println("Introduzca el ID de la galería que quiere borrar...");
+        System.out.println("Introduzca el ID de la galería que quiere seleccionar...");
         int idGaleria = teclado.nextInt();
         teclado.nextLine();
 
@@ -265,11 +259,88 @@ public class App {
         return idGaleria;
     }
 
-    public static void addFavorito() {
+    public static String seleccionarUsuario(Scanner teclado, HashMap<String, Usuario> usuarios) {
+        // Selección de usuario
+        System.out.println("Introduzca el ID del usuario que quiere seleccionar...");
+        String idUsuario = teclado.nextLine();
 
+        // Ver si existe el usuario seleccionado
+        if (!usuarios.containsKey(idUsuario))  {
+            System.out.println("El ID introducido no es correcto.");
+            return "";
+        }
+        return idUsuario;
     }
 
-    public static void removeFavorito() {
+    public static ArrayList<Favorito> addFavorito(Scanner teclado, HashMap<Integer, Evento> eventos, HashMap<String, Usuario> usuarios, ArrayList<Favorito> favoritos) {
+        // Mostrar eventos
+        mostrarEventos(eventos);
 
+        // Mostrar usuarios
+        mostrarUsuarios(usuarios);
+
+        // Seleccionar evento
+        int idEvento = seleccionarEvento(teclado, eventos);
+
+        // Seleccionar usuario
+        String idUsuario = seleccionarUsuario(teclado, usuarios);
+
+        // Salir del método si no existe el evento o el usuario
+        if (idUsuario.isEmpty() || idEvento == -1) return favoritos;
+
+        Favorito favorito = new Favorito(idUsuario, idEvento);
+        favoritos.add(favorito);
+
+        return favoritos;
+    }
+
+    
+    public static ArrayList<Favorito> removeFavorito(Scanner teclado, ArrayList<Favorito> favoritos) {
+        // Mostrar favoritos
+        mostrarFavoritos(favoritos);
+
+        // Seleccionar evento
+        System.out.println("Seleccione evento...");
+        int idEvento = teclado.nextInt();
+        teclado.nextLine();
+
+        // Seleccionar usuario por email
+        System.out.println("Seleccionar usuario (email)...");
+        String idUsuario = teclado.nextLine();
+
+        // Buscar si existe el favorito
+        for (Favorito favorito : favoritos) {
+            if (favorito.getIdEvento() == idEvento && favorito.getEmail().equals(idUsuario)) {
+                favoritos.remove(favorito);
+                System.out.println("Favorito eliminado correctamente.");
+                return favoritos;
+            }
+        }
+        System.out.println("El favorito no existe");
+        return favoritos;
+    }
+
+    public static void mostrarEventos(HashMap<Integer, Evento> eventos) {
+        for (Map.Entry<Integer, Evento> evento : eventos.entrySet()) {
+            System.out.println(evento.getKey() + ": " + evento.getValue().getTitulo());
+        }
+    }
+
+    public static void mostrarGalerias(Evento evento) {
+        for (Map.Entry<Integer, Galeria> galeria : evento.getGalerias().entrySet()) {
+            System.out.println(galeria.getKey() + ": " + galeria.getValue().getTitulo());
+        }
+    }
+
+    public static void mostrarUsuarios(HashMap<String, Usuario> usuarios) {
+        for (Map.Entry<String, Usuario> usuario : usuarios.entrySet()) {
+            System.out.println(usuario.getKey() + ": " + usuario.getValue().getNombre());
+        }
+    }
+
+    public static void mostrarFavoritos(ArrayList<Favorito> favoritos) {
+        for (Favorito favorito : favoritos) {
+            System.out.println("Usuario: " + favorito.getEmail() + " | " + "Evento: " + favorito.getIdEvento());
+        }
     }
 }
