@@ -38,6 +38,7 @@ public class Usuario {
     }
     
     /* MÉTODOS */
+    @Override
     public String toString() {
         return 
         "Nombre de usuario: " + nombre +

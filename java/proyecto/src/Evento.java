@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 /**
  * @author Héctor García Menéndez
- * @version 1.0
+ * @version 1.2
  */
 public class Evento {
     /* ATRIBUTOS */
@@ -54,16 +54,24 @@ public class Evento {
     }
     
     /* CONSTRUCTOR */
-    public Evento(int id, String fecha, String titulo, String ubicacion, String descripcion,
-            ArrayList<Galeria> galerias) {
+    public Evento(int id, String fecha, String titulo, String ubicacion, String descripcion) {
         this.id = id;
         this.fecha = fecha;
         this.titulo = titulo;
         this.ubicacion = ubicacion;
         this.descripcion = descripcion;
-        this.galerias = galerias;
+        this.galerias = new ArrayList<Galeria>();
     }
 
     /* MÉTODOS */
+    @Override
+    public String toString() {
+        return "ID: " + id +
+        "\nFecha: " + fecha +
+        "\nTitulo: " + titulo + 
+        "\nUbicacion: " + ubicacion +
+        "\nDescripcion: " + descripcion +
+        "\nGalerias: " + galerias;
+    }
 
 }
