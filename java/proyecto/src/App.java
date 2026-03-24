@@ -51,7 +51,7 @@ public class App {
                     eventos = addGaleria(teclado, eventos);
                     break;
                 case 6:
-                    removeGaleria();
+                    eventos = removeGaleria(teclado, eventos);
                     break;
                 case 7:
                     addFavorito();
@@ -178,23 +178,17 @@ public class App {
             System.out.println(evento.getKey() + ": " + evento.getValue().getTitulo());
         }
 
-        // Selección de evento
-        System.out.println("Introduzca el ID del evento al que quiere añadirle una galería...");
-        int idEvento = teclado.nextInt();
-        teclado.nextLine();
 
-        // Ver si existe el evento seleccionado
-        if (!eventos.containsKey(idEvento))  {
-            System.out.println("El ID introducido no es correcto.");
-            return eventos;
-        }
+        int idEvento = seleccionarEvento(teclado, eventos);
+        if (idEvento == -1) return eventos;
+        Evento evento = eventos.get(idEvento);
 
         // Introducir datos de la galería
         System.out.println("Introduzca el título de la galería...");
         String titulo = teclado.nextLine();
 
         Galeria galeria = new Galeria(contadorIdGaleria, titulo, idEvento);
-        HashMap<Integer, Galeria> galeriasEvento = eventos.get(idEvento).getGalerias();
+        HashMap<Integer, Galeria> galeriasEvento = evento.getGalerias();
 
         // Añadir galería a la colección de galerías
         galeriasEvento.put(galeria.getId(), galeria);
@@ -204,8 +198,71 @@ public class App {
         return eventos;
     }
 
-    public static void removeGaleria() {
+    public static HashMap<Integer, Evento> removeGaleria(Scanner teclado, HashMap<Integer, Evento> eventos) {
+        // Ver si hay eventos
+        if (eventos.isEmpty()) {
+            System.out.println("No hay eventos disponibles.");
+            return eventos;
+        }
 
+        System.out.println("- - - Borrado de galería - - -");
+        // Mostrar eventos
+        for (Map.Entry<Integer, Evento> evento : eventos.entrySet()) {
+            System.out.println(evento.getKey() + ": " + evento.getValue().getTitulo());
+        }
+
+        // Selección de evento. Si el evento no existe se sale de la opción
+        int idEvento = seleccionarEvento(teclado, eventos);
+        if (idEvento == -1) return eventos;
+        Evento evento = eventos.get(idEvento);
+
+        // Ver si hay galerías
+        if (evento.getGalerias().isEmpty()) {
+            System.out.println("No hay galerías disponibles.");
+            return eventos;
+        }
+
+        // Mostrar galerías
+        for (Map.Entry<Integer, Galeria> galeria : evento.getGalerias().entrySet()) {
+            System.out.println(galeria.getKey() + ": " + galeria.getValue().getTitulo());
+        }
+
+        // Selección de galería. Si la galería no existe se sale de la opción
+        int idGaleria = seleccionarGaleria(teclado, evento);
+        if (idGaleria == -1) return eventos;
+
+        evento.getGalerias().remove(idGaleria);
+        System.out.println("Galería eliminada correctamente.");
+
+        return eventos;
+    }
+
+    public static int seleccionarEvento(Scanner teclado, HashMap<Integer, Evento> eventos) {
+        // Selección de evento
+        System.out.println("Introduzca el ID del evento al que quiere añadirle una galería...");
+        int idEvento = teclado.nextInt();
+        teclado.nextLine();
+
+        // Ver si existe el evento seleccionado
+        if (!eventos.containsKey(idEvento))  {
+            System.out.println("El ID introducido no es correcto.");
+            return -1;
+        }
+        return idEvento;
+    }
+
+    public static int seleccionarGaleria(Scanner teclado, Evento evento) {
+        // Selección de galería
+        System.out.println("Introduzca el ID de la galería que quiere borrar...");
+        int idGaleria = teclado.nextInt();
+        teclado.nextLine();
+
+        // Ver si existe la galeria seleccionada
+        if (!evento.getGalerias().containsKey(idGaleria))  {
+            System.out.println("El ID introducido no es correcto.");
+            return -1;
+        }
+        return idGaleria;
     }
 
     public static void addFavorito() {
