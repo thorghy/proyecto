@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>HAPPINESS&Co</title>
     <meta charset="UTF-8">
     <link href="./media/styles/output.css" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <!-- npx @tailwindcss/cli -i ./media/styles/input.css -o ./media/styles/output.css --watch -->
 </head>
+
 <body>
-    <header class="relative">
-        <nav class="absolute top-0 fixed bg-rosa flex flex-nowrap items-center py-3 px-5 w-full h-12">
-            <img class="max-w-60 pr-10" src="./media/images/logos/happines-and-co-propuesta-06.jpg" alt="logotipo">
-            <div class="flex text-white">
-                <a class="px-4 text-base" href="">Inicio</a>
-                <a class="px-4 text-base" href="">Eventos</a>
-                <a class="px-4 text-base" href="">Historial de eventos</a>
-                <a class="px-4 text-base" href="">Sobre nosotros</a>
-                <a class="px-4 text-base" href="">Fuentes</a>
-                <a class="px-4 text-base" href="">Contacto</a>
+    <header class="relative h-13">
+        <nav class="absolute top-0 fixed bg-rosa flex flex-nowrap items-center py-4 px-5 w-full h-13 z-200000">
+            <img class="max-h-10 pr-10" src="./media/images/logos/happines-and-co-propuesta-06.jpg" alt="logotipo">
+            <div class="flex text-white ml-5 space-x-10">
+                <a class="text-base" href="">Inicio</a>
+                <a class="text-base" href="">Eventos</a>
+                <a class="text-base" href="">Historial de eventos</a>
+                <a class="text-base" href="">Sobre nosotros</a>
+                <a class="text-base" href="">Fuentes</a>
+                <a class="text-base" href="">Contacto</a>
             </div>
-        </nav>
+        </nav>º
     </header>
-    <main class="h-full mt-12 bg-red-700 flex flex-nowrap">
-        <div class="h-full w-80 bg-white">
+    <main class="h-full w-full flex flex">
+        <div class="h-full w-100 bg-white border-r-4 border-solid border-rosa">
             <p>a</p>
         </div>
-        <div>
-
+        <div class="w-full">
+            <div class="flex flex-col w-full h-75 bg-[url('../images/san-juan.jpg')] bg-no-repeat bg-center shadow-md/20 relative">
+                <div class="absolute bottom-0 flex-col px-7 py-2">
+                    <h3 class="text-white">23 de junio de 2026</h3>
+                    <h2 class="text-white">Hoguera de San Juan 2026</h2>
+                </div>
+            </div>
+            <div class="flex flex-col px-7 mt-3">
+                <h2>Próximos eventos</h2>
+            </div>
+            
         </div>
     </main>
     <footer>
-        
+
     </footer>
 </body>
+
 </html>

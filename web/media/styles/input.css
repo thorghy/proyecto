@@ -4,8 +4,22 @@
   --color-rosa: oklch(0.5815 0.238264 355.6787);
 }
 
+
 html, body{
   overscroll-behavior: none;
   height: 100%;
   position: sticky;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+* {
+  font-family: Rubik;
 }
