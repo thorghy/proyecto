@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-rosa: oklch(0.5815 0.238264 355.6787);
+}
+
+html, body{
+  overscroll-behavior: none;
+  height: 100%;
+  position: sticky;
+}
