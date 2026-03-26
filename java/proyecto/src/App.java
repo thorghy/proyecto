@@ -11,6 +11,7 @@ public class App {
 
     static int contadorIdEvento = 0;
     static int contadorIdGaleria = 0;
+    
     public static void main(String[] args) throws Exception {
         Scanner teclado = new Scanner(System.in);
 
@@ -134,14 +135,10 @@ public class App {
         String descripcion = teclado.nextLine();
 
         Evento evento = new Evento(contadorIdEvento, fecha, titulo, ubicacion, descripcion);
+        eventos.put(evento.getId(), evento);
+        System.out.println("Evento creado correctamente");
 
-        if (eventos.containsKey(evento.getId())) {
-            System.out.println("El evento ya existe.");
-        } else {
-            eventos.put(evento.getId(), evento);
-            System.out.println("Evento creado correctamente");
-            contadorIdEvento++;
-        }
+        contadorIdEvento++;
         return eventos;
     }
 
@@ -231,6 +228,52 @@ public class App {
         return eventos;
     }
 
+    public static ArrayList<Favorito> addFavorito(Scanner teclado, HashMap<Integer, Evento> eventos, HashMap<String, Usuario> usuarios, ArrayList<Favorito> favoritos) {
+        // Mostrar eventos
+        mostrarEventos(eventos);
+
+        // Mostrar usuarios
+        mostrarUsuarios(usuarios);
+
+        // Seleccionar evento y usuario
+        int idEvento = seleccionarEvento(teclado, eventos);
+        String idUsuario = seleccionarUsuario(teclado, usuarios);
+
+        // Salir del método si no existe el evento o el usuario
+        if (idUsuario.isEmpty() || idEvento == -1) return favoritos;
+
+        // Añadir favorito
+        Favorito favorito = new Favorito(idUsuario, idEvento);
+        favoritos.add(favorito);
+
+        return favoritos;
+    }
+    
+    public static ArrayList<Favorito> removeFavorito(Scanner teclado, ArrayList<Favorito> favoritos) {
+        // Mostrar favoritos
+        mostrarFavoritos(favoritos);
+
+        // Seleccionar evento
+        System.out.println("Seleccione evento...");
+        int idEvento = teclado.nextInt();
+        teclado.nextLine();
+
+        // Seleccionar usuario por email
+        System.out.println("Seleccionar usuario (email)...");
+        String idUsuario = teclado.nextLine();
+
+        // Buscar si existe el favorito
+        for (Favorito favorito : favoritos) {
+            if (favorito.getIdEvento() == idEvento && favorito.getEmail().equals(idUsuario)) {
+                favoritos.remove(favorito);
+                System.out.println("Favorito eliminado correctamente.");
+                return favoritos;
+            }
+        }
+        System.out.println("El favorito no existe");
+        return favoritos;
+    }
+
     public static int seleccionarEvento(Scanner teclado, HashMap<Integer, Evento> eventos) {
         // Selección de evento
         System.out.println("Introduzca el ID del evento que quiere seleccionar...");
@@ -270,54 +313,6 @@ public class App {
             return "";
         }
         return idUsuario;
-    }
-
-    public static ArrayList<Favorito> addFavorito(Scanner teclado, HashMap<Integer, Evento> eventos, HashMap<String, Usuario> usuarios, ArrayList<Favorito> favoritos) {
-        // Mostrar eventos
-        mostrarEventos(eventos);
-
-        // Mostrar usuarios
-        mostrarUsuarios(usuarios);
-
-        // Seleccionar evento
-        int idEvento = seleccionarEvento(teclado, eventos);
-
-        // Seleccionar usuario
-        String idUsuario = seleccionarUsuario(teclado, usuarios);
-
-        // Salir del método si no existe el evento o el usuario
-        if (idUsuario.isEmpty() || idEvento == -1) return favoritos;
-
-        Favorito favorito = new Favorito(idUsuario, idEvento);
-        favoritos.add(favorito);
-
-        return favoritos;
-    }
-
-    
-    public static ArrayList<Favorito> removeFavorito(Scanner teclado, ArrayList<Favorito> favoritos) {
-        // Mostrar favoritos
-        mostrarFavoritos(favoritos);
-
-        // Seleccionar evento
-        System.out.println("Seleccione evento...");
-        int idEvento = teclado.nextInt();
-        teclado.nextLine();
-
-        // Seleccionar usuario por email
-        System.out.println("Seleccionar usuario (email)...");
-        String idUsuario = teclado.nextLine();
-
-        // Buscar si existe el favorito
-        for (Favorito favorito : favoritos) {
-            if (favorito.getIdEvento() == idEvento && favorito.getEmail().equals(idUsuario)) {
-                favoritos.remove(favorito);
-                System.out.println("Favorito eliminado correctamente.");
-                return favoritos;
-            }
-        }
-        System.out.println("El favorito no existe");
-        return favoritos;
     }
 
     public static void mostrarEventos(HashMap<Integer, Evento> eventos) {
