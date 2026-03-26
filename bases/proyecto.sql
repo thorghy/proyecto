@@ -1,4 +1,4 @@
-create table usuario (
+create table usuarios (
     idUsuario int,
     nombre varchar2(30),
     email varchar2(35),
@@ -7,7 +7,7 @@ create table usuario (
     constraint pk_usuario primary key(idUsuario)
 );
 
-create table evento (
+create table eventos (
     idEvento int,
     fecha date,
     titulo varchar2(50),
@@ -17,29 +17,56 @@ create table evento (
     constraint pk_evento primary key(idEvento)
 );
 
-create table galeria (
+create table galerias (
     idGaleria int,
     titulo varchar2(50),
     idEvento int,
     
     constraint pk_galeria primary key(idGaleria),
-    constraint fk_galEvento foreign key(idEvento) references evento(idEvento)
+    constraint fk_galEvento foreign key(idEvento) references eventos(idEvento)
 );
 
-create table imagen (
+create table imagenes (
     idImagen int,
     titulo varchar2(40),
-    imagen number(6),
+    imagen varchar2(50),
     idGaleria int,
     
     constraint pk_imagen primary key(idImagen),
-    constraint fk_imgGaleria foreign key(idGaleria) references galeria(idGaleria)
+    constraint fk_imgGaleria foreign key(idGaleria) references galerias(idGaleria)
 );
 
-create table favorito (
+create table favoritos (
     idUsuario int,
     idEvento int,
     
-    constraint fk_favUsuario foreign key(idUsuario) references usuario(idUsuario),
-    constraint fk_favEvento foreign key(idEvento) references evento(idEvento)
+    constraint fk_favUsuario foreign key(idUsuario) references usuarios(idUsuario),
+    constraint fk_favEvento foreign key(idEvento) references eventos(idEvento)
 );
+
+insert into eventos values(1, '01-01-2026', 'Baile Salmantino de Año Nuevo', 'Mieres del Camino', 'Los salmantinos de Mieres celebran el año nuevo con un novedoso baile en la plaza del ayuntamiento.');
+insert into eventos values(2, '12-01-2026', 'Cocina de Mazapán con curry', 'Oviedo', 'Aprende a cocinar mazapán con curry junto a actividades interactivas. Ideal para todas las edades.');
+insert into eventos values(3, '24-01-2026', 'Concierto de una silla', 'Gijón', 'Escucha a una silla cantar. Parte del Silla World Tour 2026.');
+insert into eventos values(4, '05-06-2026', '1º Campeonato de petanca y escalope de Asturias', 'Gijón', 'Primera de edición del nuevo e innovador campeonato de petanca y escalope. Precio entrada: 10€. La entrada es un ticket de una rifa para ganar un escalope.');
+insert into eventos values(5, '15-06-2026', 'Piruetas robóticas', 'Avilés', 'Diseña y construye un robot capaz de realizar piruetas con precisión milimétrica.');
+insert into eventos values(6, '25-06-2026', 'Día de la rúcula', 'Villaviciosa', 'Celebración anual del día de la rúcula. Rúcula gratis.');
+
+insert into usuarios values(1, 'hector', 'hector@hector.es', 'h3ct0r');
+insert into usuarios values(2, 'misterqueso', 'quesoparmesano@gmail.com', 'quesolover123'); 
+insert into usuarios values(3, 'petancayescalope', 'soporte@petancayescalope.es', 'contraseña');
+
+insert into galerias values(1, 'Galería del baile salamantino', 1);
+insert into galerias values(2, 'Galería de la cocina de mazapán con curry', 2);
+insert into galerias values(3, 'Galería del concierto de la silla esa', 3);
+
+insert into imagenes values(1, 'imagen de una baile', 'baile.jpg', 1);
+insert into imagenes values(2, 'alguien bailando', 'bailando.jpg', 1);
+insert into imagenes values(3, 'salamanca', 'salamanca.jpg', 1);
+
+insert into imagenes values(4, 'foto de un mazapán', 'mazapán.jpg', 2);
+insert into imagenes values(5, 'foto de el curry', 'curry.jpg', 2);
+insert into imagenes values(6, 'imagen de un mazapán con curry', 'mazapanycurry.jpg', 2);
+
+insert into imagenes values(7, 'silla cantando', 'silla_cantando.jpg', 3);
+insert into imagenes values(8, 'silla bailando', 'silla_bailando.jpg', 3);
+insert into imagenes values(9, 'escenario del concierto', 'escenario.jpg', 3);
