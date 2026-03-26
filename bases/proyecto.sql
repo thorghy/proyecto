@@ -70,3 +70,40 @@ insert into imagenes values(6, 'imagen de un mazapán con curry', 'mazapanycurry.
 insert into imagenes values(7, 'silla cantando', 'silla_cantando.jpg', 3);
 insert into imagenes values(8, 'silla bailando', 'silla_bailando.jpg', 3);
 insert into imagenes values(9, 'escenario del concierto', 'escenario.jpg', 3);
+
+insert into favoritos values(1, 1);
+insert into favoritos values(1, 2);
+insert into favoritos values(1, 6);
+
+insert into favoritos values(2, 2);
+insert into favoritos values(2, 1);
+insert into favoritos values(2, 4);
+
+insert into favoritos values(3, 2);
+insert into favoritos values(3, 3);
+insert into favoritos values(3, 5);
+
+create view historialGalerias as
+select galerias.titulo
+from galerias, eventos
+where eventos.fecha < '28-02-2026' 
+    and eventos.idEvento = galerias.idEvento;
+
+create view favoritosUsuario1 as
+select eventos.titulo
+from favoritos, eventos
+where eventos.idEvento = favoritos.idEvento 
+    and favoritos.idUsuario = 1;
+
+create view imgGalEvento as
+select imagenes.titulo
+from imagenes, galerias
+where imagenes.idGaleria = galerias.idGaleria 
+    and galerias.idEvento = 2;
+
+create view favsUsuario2Posteriores as
+select eventos.titulo
+from eventos, favoritos
+where eventos.fecha > '28-02-2026'
+    and eventos.idEvento = favoritos.idEvento
+    and favoritos.idUsuario = 2;
