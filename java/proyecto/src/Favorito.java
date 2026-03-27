@@ -31,4 +31,9 @@ public class Favorito {
     }
 
     /* MÉTODOS */
+    @Override
+    public String toString() {
+        return "Email del usuario: " + email +
+        "\nID Evento: " + idEvento;
+    }
 }

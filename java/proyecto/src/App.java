@@ -5,18 +5,48 @@ import java.util.Scanner;
 
 /**
  * @author Héctor García Menéndez
- * @version 1.2
+ * @version 1.4
  */
 public class App {
 
+    /**
+     * Contardor del ID de eventos
+     * Sirve para tener un contador de los IDs usados para crear eventos
+     */
     static int contadorIdEvento = 0;
+
+    /**
+     * Contardor del ID de galerias
+     * Sirve para tener un contador de los IDs usados para crear galerias
+     */
     static int contadorIdGaleria = 0;
     
+    /**
+     * Main
+     * Programa principal
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         Scanner teclado = new Scanner(System.in);
 
+        /**
+         * Hashmap de usuarios
+         * Llave: email
+         * Valor: Usuario
+         */
         HashMap<String, Usuario> usuarios = new HashMap<>();
+
+        /**
+         * Hashmap de eventos
+         * Llave: idEvento
+         * Valor: Evento
+         */
         HashMap<Integer, Evento> eventos = new HashMap<>();
+
+        /**
+         * ArrayList de favoritos
+         */
         ArrayList<Favorito> favoritos = new ArrayList<>();
 
         int resp;
@@ -51,7 +81,9 @@ public class App {
                     eventos = removeEvento(teclado, eventos);
                     break;
                 case 5:
-                    eventos = addGaleria(teclado, eventos);
+                    HashMap<Integer, Evento> eventos_temp = addGaleria(teclado, eventos);
+                    if (eventos_temp!=null) eventos=eventos_temp;
+                    else System.out.println("El evento al que añades la galeria no existe");
                     break;
                 case 6:
                     eventos = removeGaleria(teclado, eventos);
@@ -74,6 +106,13 @@ public class App {
         } while (resp != 9);
     }
 
+    /**
+     * Añadadir usuario
+     * Añade un usuario al HashMap usuarios
+     * @param teclado input
+     * @param usuarios HashMap
+     * @return usuarios
+     */
     public static HashMap<String, Usuario> addUsuario(Scanner teclado, HashMap<String, Usuario> usuarios) {
         System.out.println("- - - Creación de usuario - - -");
 
@@ -98,6 +137,13 @@ public class App {
         return usuarios;
     }
 
+    /**
+     * Borrar usuario
+     * Borrar un usuario del HashMap usuarios
+     * @param teclado input
+     * @param usuarios HashMap
+     * @return usuarios
+     */
     public static HashMap<String, Usuario> removeUsuario(Scanner teclado, HashMap<String, Usuario> usuarios) {
         if (usuarios.isEmpty()) {
             System.out.println("No hay usuarios para eliminar.");
@@ -119,6 +165,14 @@ public class App {
         return usuarios;
     }
 
+    /**
+     * Añadir evento
+     * Añade un evento al HashMap eventos
+     * @param teclado input
+     * @param eventos HashMap
+     * @param contadorIDEvento contador de los IDs usados
+     * @return eventos
+     */
     public static HashMap<Integer, Evento> addEvento(Scanner teclado, HashMap<Integer, Evento> eventos, int contadorIDEvento) {
         System.out.println("- - - Creación de evento - - -");
 
@@ -142,6 +196,13 @@ public class App {
         return eventos;
     }
 
+    /**
+     * Borrar evento
+     * Borra un evento del HashMap eventos
+     * @param teclado input
+     * @param eventos HashMap
+     * @return eventos
+     */
     public static HashMap<Integer, Evento> removeEvento(Scanner teclado, HashMap<Integer, Evento> eventos) {
         if (eventos.isEmpty()) {
             System.out.println("No hay eventos para eliminar.");
@@ -163,6 +224,13 @@ public class App {
         return eventos;
     }
 
+    /**
+     * Añadadir galeria
+     * Añade una galeria a un evento
+     * @param teclado input
+     * @param eventos HashMap
+     * @return eventos
+     */
     public static HashMap<Integer, Evento> addGaleria(Scanner teclado, HashMap<Integer, Evento> eventos) {
         // Ver si hay eventos
         if (eventos.isEmpty()) {
@@ -175,7 +243,7 @@ public class App {
         mostrarEventos(eventos);
 
         int idEvento = seleccionarEvento(teclado, eventos);
-        if (idEvento == -1) return eventos;
+        if (idEvento == -1) return null;
         Evento evento = eventos.get(idEvento);
 
         // Introducir datos de la galería
@@ -193,6 +261,13 @@ public class App {
         return eventos;
     }
 
+    /**
+     * Borrar galeria
+     * Borra una galeria de un evento
+     * @param teclado input
+     * @param eventos HashMap
+     * @return eventos
+     */
     public static HashMap<Integer, Evento> removeGaleria(Scanner teclado, HashMap<Integer, Evento> eventos) {
         // Ver si hay eventos
         if (eventos.isEmpty()) {
@@ -228,6 +303,15 @@ public class App {
         return eventos;
     }
 
+    /**
+     * Añadir favorito
+     * Añadir favorito al ArrayList de favoritos
+     * @param teclado input
+     * @param eventos HashMap
+     * @param usuarios HashMap
+     * @param favoritos ArrayList
+     * @return favoritos
+     */
     public static ArrayList<Favorito> addFavorito(Scanner teclado, HashMap<Integer, Evento> eventos, HashMap<String, Usuario> usuarios, ArrayList<Favorito> favoritos) {
         // Mostrar eventos
         mostrarEventos(eventos);
@@ -249,6 +333,13 @@ public class App {
         return favoritos;
     }
     
+    /**
+     * Borrar favorito
+     * Borra un favorito de la lista de favoritos
+     * @param teclado input
+     * @param favoritos ArrayList
+     * @return favoritos
+     */
     public static ArrayList<Favorito> removeFavorito(Scanner teclado, ArrayList<Favorito> favoritos) {
         // Mostrar favoritos
         mostrarFavoritos(favoritos);
@@ -274,6 +365,12 @@ public class App {
         return favoritos;
     }
 
+    /**
+     * Método para seleccionar un evento
+     * @param teclado
+     * @param eventos
+     * @return idEvento identificador del evento, devuelve -1 si no existe 
+     */
     public static int seleccionarEvento(Scanner teclado, HashMap<Integer, Evento> eventos) {
         // Selección de evento
         System.out.println("Introduzca el ID del evento que quiere seleccionar...");
@@ -282,7 +379,7 @@ public class App {
 
         // Ver si existe el evento seleccionado
         if (!eventos.containsKey(idEvento))  {
-            System.out.println("El ID introducido no es correcto.");
+            System.out.println("El ID introducido no es correcto o no existe.");
             return -1;
         }
         return idEvento;
@@ -316,9 +413,10 @@ public class App {
     }
 
     public static void mostrarEventos(HashMap<Integer, Evento> eventos) {
-        for (Map.Entry<Integer, Evento> evento : eventos.entrySet()) {
+        eventos.forEach((clave,valor) -> System.out.println(clave + ": " + valor.getTitulo()));
+       /*  for (Map.Entry<Integer, Evento> evento : eventos.entrySet()) {
             System.out.println(evento.getKey() + ": " + evento.getValue().getTitulo());
-        }
+        }*/
     }
 
     public static void mostrarGalerias(Evento evento) {

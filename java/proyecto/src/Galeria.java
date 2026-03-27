@@ -39,4 +39,10 @@ public class Galeria {
     }
 
     /* MÉTODOS */
+    @Override
+    public String toString() {
+        return "ID: " + id +
+        "\nTitulo: " + titulo +
+        "\nID Evento: " + idEvento;
+    }
 }
