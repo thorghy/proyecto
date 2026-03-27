@@ -30,3 +30,7 @@ h3 {
 * {
   font-family: Rubik;
 }
+
+input[type="text"]:focus {
+  border: none;
+}
