@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-rosa: oklch(0.5815 0.238264 355.6787);
