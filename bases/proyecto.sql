@@ -83,24 +83,28 @@ insert into favoritos values(3, 2);
 insert into favoritos values(3, 3);
 insert into favoritos values(3, 5);
 
+/* VISTA 1 */
 create view historialGalerias as
 select galerias.titulo
 from galerias, eventos
 where eventos.fecha < '28-02-2026' 
     and eventos.idEvento = galerias.idEvento;
 
+/* VISTA 2 */
 create view favoritosUsuario1 as
 select eventos.titulo
 from favoritos, eventos
 where eventos.idEvento = favoritos.idEvento 
     and favoritos.idUsuario = 1;
 
+/* VISTA 3 */
 create view imgGalEvento as
 select imagenes.titulo
 from imagenes, galerias
 where imagenes.idGaleria = galerias.idGaleria 
     and galerias.idEvento = 2;
 
+/* VISTA 4 */
 create view favsUsuario2Posteriores as
 select eventos.titulo
 from eventos, favoritos

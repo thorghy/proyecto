@@ -1,0 +1,29 @@
+[
+  { 
+    "id": 1,
+    "titulo": "Baile Salmantino de Año Nuevo",
+    "descripcion": "Los salmantinos de Mieres celebran el año nuevo con un novedoso baile en la plaza del ayuntamiento.",
+    "fecha": "1 de enero de 2026",
+    "lugar": "Mieres del Camino",
+    "categoria": "Celebraciones",
+    "imagen": "boombastic.jpg"
+  },
+  { 
+    "id": 2,
+    "titulo": "Cocina de Mazapán con curry",
+    "descripcion": "Aprende a cocinar mazapán con curry junto a actividades interactivas. Ideal para todas las edades.",
+    "fecha": "12 de enero de 2026",
+    "lugar": "Oviedo",
+    "categoria": "Actividades",
+    "imagen": "molinon.jpg"
+  },
+  { 
+    "id": 3,
+    "titulo": "Concierto de una silla",
+    "descripcion": "Escucha a una silla cantar. Parte del Silla World Tour 2026.",
+    "fecha": "24 de enero de 2026",
+    "lugar": "Gijón",
+    "categoria": "Musica",
+    "imagen": "molinon.jpg"
+  }
+]
