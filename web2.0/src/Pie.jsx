@@ -16,7 +16,7 @@ function Pie() {
                     <p className="mr-2">Síguenos en nuestras redes sociales:</p>
                 </div>
                 <div>
-                    <p>Todos los derechos reservados &copy 2026 HAPPINES&Co</p>
+                    <p>Todos los derechos reservados &copy; 2026 HAPPINES&Co</p>
                 </div>
             </div>
         </footer>

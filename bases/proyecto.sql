@@ -50,7 +50,16 @@ insert into eventos values(3, '24-01-2026', 'Concierto de una silla', 'Gijón', '
 insert into eventos values(4, '05-06-2026', '1º Campeonato de petanca y escalope de Asturias', 'Gijón', 'Primera de edición del nuevo e innovador campeonato de petanca y escalope. Precio entrada: 10€. La entrada es un ticket de una rifa para ganar un escalope.');
 insert into eventos values(5, '15-06-2026', 'Piruetas robóticas', 'Avilés', 'Diseña y construye un robot capaz de realizar piruetas con precisión milimétrica.');
 insert into eventos values(6, '25-06-2026', 'Día de la rúcula', 'Villaviciosa', 'Celebración anual del día de la rúcula. Rúcula gratis.');
+insert into eventos values(7, '28-03-2026', 'Real Sporting vs Deportivo La Coruña', 'Estadio el Molinón, Gijón', 'SIN DESCRIPCION');
+insert into eventos values(8, '23-06-2026', 'Hoguera de San Juan 2026', null, 'SIN DESCRIPCION');
+insert into eventos values(9, '16-07-2026', 'Boombastic Asturias 2026', 'Llanera', 'SIN DESCRIPCION');
+insert into eventos values(10, '01-04-2026', 'Estreno: Super Mario Galaxy: La película', null, 'SIN DESCRIPCION');
+insert into eventos values(11, '10-08-2026', 'Concierto La Oreja De Van Gogh Gijón', 'Gijón Life', 'SIN DESCRIPCION');
+insert into eventos values(12, '20-12-2025', 'Concierto Fito y Fitipaldis', 'Palacio de Deportes, Gijón', 'SIN DESCRIPCION');
+insert into eventos values(13, '12-02-2026', 'Carnaval 2026', null, 'SIN DESCRIPCION');
 
+select * from eventos
+order by idevento;
 insert into usuarios values(1, 'hector', 'hector@hector.es', 'h3ct0r');
 insert into usuarios values(2, 'misterqueso', 'quesoparmesano@gmail.com', 'quesolover123'); 
 insert into usuarios values(3, 'petancayescalope', 'soporte@petancayescalope.es', 'contraseña');

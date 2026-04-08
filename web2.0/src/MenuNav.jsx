@@ -8,12 +8,12 @@ function MenuNav({pagina}) {
       <div name="navegacion" className="flex flex-row items-center">
         <img className="max-h-10 pr-10 max-lg:mb-4" src={logo} alt="logotipo" />
         <ul className="flex text-white ml-5 space-x-10 text-lg">
-          <li><a className={pagina == "index" && "font-bold"} href="./index.html">Inicio</a></li>
-          <li><a className={pagina == "proximos-eventos" && "font-bold"} href="../proximos-eventos.html">Eventos</a></li>
-          <li><a className={pagina == "historial-de-eventos" && "font-bold"} href="../historial-de-eventos.html">Historial de eventos</a></li>
-          <li><a className={pagina == "sobre-nosotros" && "font-bold"} href="../sobre-nosotros.html">Sobre nosotros</a></li>
-          <li><a className={pagina == "fuentes" && "font-bold"} href="../fuentes.html">Fuentes</a></li>
-          <li><a className={pagina == "contacto" && "font-bold"} href="../contacto.html">Contacto</a></li>
+          <li><a className={pagina == "index" ? "font-bold" : ""} href="./index.html">Inicio</a></li>
+          <li><a className={pagina == "proximos-eventos" ? "font-bold" : ""} href="../proximos-eventos.html">Eventos</a></li>
+          <li><a className={pagina == "historial-de-eventos" ? "font-bold" : ""} href="../historial-de-eventos.html">Historial de eventos</a></li>
+          <li><a className={pagina == "sobre-nosotros" ? "font-bold" : ""} href="../sobre-nosotros.html">Sobre nosotros</a></li>
+          <li><a className={pagina == "fuentes" ? "font-bold" : ""} href="../fuentes.html">Fuentes</a></li>
+          <li><a className={pagina == "contacto" ? "font-bold" : ""} href="../contacto.html">Contacto</a></li>
         </ul>
       </div>
       <button>

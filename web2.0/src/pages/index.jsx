@@ -23,7 +23,9 @@ createRoot(document.getElementById('root')).render(
         <section name="principal" className="w-full h-fit pb-10">
             <EventoDestacado/>
             <OpcionesBusqueda/>
-            <Eventos/>
+            <Eventos
+            tipoFecha={"proximo"}
+            />
         </section>
       </main>
       <Pie></Pie>
