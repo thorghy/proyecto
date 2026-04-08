@@ -1,6 +1,6 @@
 function OpcionesBusqueda() {
     return (
-        <div name="opciones-de-busqueda" className="flex flex-col px-7 mt-3">
+        <div name="opciones-de-busqueda" className="flex flex-col px-7 mt-4">
             <div className="flex flex-row">
                 <div className="flex flex-row space-x-2">
                     <div
@@ -20,7 +20,7 @@ function OpcionesBusqueda() {
 
                     <button className="bg-white hover:border-gris py-1 w-40 h-10 rounded-lg border-rosa border-3 border-solid flex items-center flex-row justify-between">
                         <span className="ml-4 text-base text-black">
-                            Recientes
+                            Nuevos
                         </span>
                         <img className="w-7 ml-auto mr-2 fill-rosa" src="src\assets\icons\dropdown.svg" />
                     </button>

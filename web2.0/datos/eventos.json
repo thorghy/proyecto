@@ -25,5 +25,14 @@
     "lugar": "Gijón",
     "categoria": "Musica",
     "imagen": "molinon.jpg"
+  },
+  { 
+    "id": 4,
+    "titulo": "1º Campeonato de petanca y escalope de Asturias",
+    "descripcion": "Primera de edición del nuevo e innovador campeonato de petanca y escalope. Precio entrada: 10€. La entrada es un ticket de una rifa para ganar un escalope.",
+    "fecha": "5 de junio de 2026",
+    "lugar": "Gijón",
+    "categoria": "Deportes",
+    "imagen": "molinon.jpg"
   }
 ]
