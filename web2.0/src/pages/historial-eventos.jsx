@@ -13,7 +13,7 @@ import Eventos from "../Eventos"
 createRoot(document.getElementById('root')).render(
   <>
     <header className='lg:h-13'>
-      <MenuNav pagina="proximos-eventos"></MenuNav>
+      <MenuNav pagina="historial-eventos"></MenuNav>
     </header>
 
     <section name="scroll" className="overflow-hidden overflow-x-hidden overflow-scroll h-full flex flex-col justify-between">
@@ -21,7 +21,7 @@ createRoot(document.getElementById('root')).render(
         <Lateral />
         <section name="principal" className="w-full h-fit pb-10 pt-4">
             <OpcionesBusqueda/>
-            <Eventos mostrarEventosProximos={true} />
+            <Eventos mostrarEventosProximos={false} />
         </section>
       </main>
       <Pie></Pie>

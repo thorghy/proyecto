@@ -1,7 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import '../assets/styles/styles.css'
-import App from '../App.jsx'
 
 import MenuNav from '../MenuNav.jsx'
 import Lateral from '../Lateral.jsx'
@@ -23,9 +22,7 @@ createRoot(document.getElementById('root')).render(
         <section name="principal" className="w-full h-fit pb-10">
             <EventoDestacado/>
             <OpcionesBusqueda/>
-            <Eventos
-            tipoFecha={"proximo"}
-            />
+            <Eventos mostrarEventosProximos={true} />
         </section>
       </main>
       <Pie></Pie>
