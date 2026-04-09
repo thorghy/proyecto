@@ -11,8 +11,9 @@ function Eventos({mostrarEventosProximos}) {
             {datosEventos.map(evento =>
                 <TarjetaEvento 
                 key={evento.id}
+                id={evento.id}
                 titulo={evento.titulo}
-                descripcion={evento.descripcion}
+                descripcionCorta={evento.descripcionCorta}
                 fechaLarga={evento.fecha.fechaLarga}
                 fechaCorta={evento.fecha.fechaCorta}
                 lugar={evento.lugar}
