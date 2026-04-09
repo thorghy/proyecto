@@ -13,5 +13,5 @@
 - PROGRAMACIÓN
     - [Main](./java/proyecto/src/App.java)
 - MARCAS
-    - [Index](./web/index.html)
+    - [Index](./web2.0/index.html)
 - RSS
