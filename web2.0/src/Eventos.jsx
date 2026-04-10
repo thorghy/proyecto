@@ -14,11 +14,11 @@ function Eventos({mostrarEventosProximos}) {
                 id={evento.id}
                 titulo={evento.titulo}
                 descripcionCorta={evento.descripcionCorta}
-                fechaLarga={evento.fecha.fechaLarga}
-                fechaCorta={evento.fecha.fechaCorta}
+                fecha={evento.fecha}
                 lugar={evento.lugar}
                 categoria={evento.categoria}
-                imagen={evento.imagen}
+                poster={evento.poster}
+                galeria={evento.galeria}
                 mostrarEventosProximos={mostrarEventosProximos}
                 />
             )}

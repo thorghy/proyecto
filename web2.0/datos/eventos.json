@@ -3,156 +3,200 @@
     "id": 1,
     "titulo": "Baile Salmantino de Año Nuevo",
     "descripcionCorta": "Los salmantinos de Mieres celebran el año nuevo con un novedoso baile en la plaza del ayuntamiento.",
+    "descripcionLarga": "",
     "fecha": {
       "fechaLarga": "1 de enero de 2026",
       "fechaCorta": "1/1/2026"
     },
     "lugar": "Mieres del Camino",
     "categoria": "Celebraciones",
-    "imagen": null
+    "poster": "poster.jpg",
+    "galeria": null
   },
   { 
     "id": 2,
     "titulo": "Cocina de Mazapán con curry",
     "descripcionCorta": "Aprende a cocinar mazapán con curry junto a actividades interactivas. Ideal para todas las edades.",
+    "descripcionLarga": "",
     "fecha": {
       "fechaLarga": "12 de enero de 2026",
       "fechaCorta": "12/1/2026"
     },
     "lugar": "Oviedo",
     "categoria": "Actividades",
-    "imagen": null
+    "poster": null,
+    "galeria": null
   },
   { 
     "id": 3,
     "titulo": "Concierto de una silla",
     "descripcionCorta": "Escucha a una silla cantar. Parte del Silla World Tour 2026.",
+    "descripcionLarga": "",
     "fecha": {
       "fechaLarga": "24 de enero de 2026",
       "fechaCorta": "24/1/2026"
     },
     "lugar": "Gijón",
     "categoria": "Musica",
-    "imagen": "silla-concierto.png"
+    "poster": "silla-concierto.png",
+    "galeria": {
+        "1": "silla-concierto.png",
+        "2": "silla-concierto.png"
+    }
   },
   { 
     "id": 4,
     "titulo": "1º Campeonato de petanca y escalope de Asturias",
     "descripcionCorta": "Primera de edición del nuevo e innovador campeonato de petanca y escalope. Precio entrada: 10€. La entrada es un ticket de una rifa para ganar un escalope.",
+    "descripcionLarga": "",
     "fecha": {
       "fechaLarga": "5 de junio de 2026",
       "fechaCorta": "5/6/2026"
     },
     "lugar": "Gijón",
     "categoria": "Deportes",
-    "imagen": "petanca-y-escalope.jpg"
+    "poster": "petanca-y-escalope.jpg",
+    "galeria": {
+        "1": "petanca-y-escalope.jpg"
+    }
   },
   { 
     "id": 5,
     "titulo": "Piruetas robóticas",
     "descripcionCorta": "Diseña y construye un robot capaz de realizar piruetas con precisión milimétrica.",
+    "descripcionLarga": "",
     "fecha": {
       "fechaLarga": "15 de junio de 2026",
       "fechaCorta": "15/6/2026"
     },
     "lugar": "Avilés",
     "categoria": "Actividades",
-    "imagen": null
+    "poster": "petanca-y-escalope.jpg",
+    "galeria": null
   },
   { 
     "id": 6,
     "titulo": "Día de la rúcula",
     "descripcionCorta": "Celebración anual del día de la rúcula. Rúcula gratis.",
+    "descripcionLarga": "",
     "fecha": {
       "fechaLarga": "25 de junio de 2026",
       "fechaCorta": "25/6/2026"
     },
     "lugar": "Villaviciosa",
     "categoria": "Celebraciones",
-    "imagen": null
+    "poster": "petanca-y-escalope.jpg",
+    "galeria": null
   },
   { 
     "id": 7,
     "titulo": "Real Sporting vs Deportivo La Coruña",
     "descripcionCorta": "SIN DESCRIPCION",
+    "descripcionLarga": "",
     "fecha": {
       "fechaLarga": "28 de marzo de 2026",
       "fechaCorta": "28/3/2026"
     },
     "lugar": "Estadio el Molinón, Gijón",
     "categoria": "Deportes",
-    "imagen": "molinon.jpg"
+    "poster": "molinon.jpg",
+    "galeria": {
+        "1": "molinon.jpg"
+    }
   },
   { 
     "id": 8,
     "titulo": "Hoguera de San Juan 2026",
     "descripcionCorta": "SIN DESCRIPCION",
+    "descripcionLarga": "",
     "fecha": {
       "fechaLarga": "23 de junio de 2026",
       "fechaCorta": "23/6/2026"
     },
     "lugar": null,
     "categoria": "Celebraciones",
-    "imagen": "san-juan.jpg"
+    "poster": "san-juan.jpg",
+    "galeria": {
+        "1": "san-juan.jpg"
+    }
   },
   { 
     "id": 9,
     "titulo": "Boombastic Asturias 2026",
     "descripcionCorta": "SIN DESCRIPCION",
+    "descripcionLarga": "",
     "fecha": {
       "fechaLarga": "23 de junio de 2026",
       "fechaCorta": "23/6/2026"
     },
     "lugar": "Llanera",
     "categoria": "Musica",
-    "imagen": "boombastic.jpg"
+    "poster": "boombastic.jpg",
+    "galeria": {
+        "1": "boombastic.jpg"
+    }
   },
   { 
     "id": 10,
     "titulo": "Estreno: Super Mario Galaxy: La película",
     "descripcionCorta": "SIN DESCRIPCION",
+    "descripcionLarga": "",
     "fecha": {
       "fechaLarga": "1 de abril de 2026",
       "fechaCorta": "1/4/2026"
     },
     "lugar": null,
     "categoria": "Cine",
-    "imagen": "mario-pelicula.jpg"
+    "poster": "mario-pelicula.jpg",
+    "galeria": {
+        "1": "mario-pelicula.jpg"
+    }
   },
   { 
     "id": 11,
     "titulo": "Concierto La Oreja De Van Gogh Gijón",
     "descripcionCorta": "SIN DESCRIPCION",
+    "descripcionLarga": "",
     "fecha": {
       "fechaLarga": "10 de julio de 2026",
       "fechaCorta": "10/7/2026"
     },
     "lugar": "Gijón Life",
     "categoria": "Musica",
-    "imagen": null
+    "poster": "mario-pelicula.jpg",
+    "galeria": null
   },
   { 
     "id": 12,
     "titulo": "Concierto Fito y Fitipaldis",
     "descripcionCorta": "SIN DESCRIPCION",
+    "descripcionLarga": "Más de dos años y medio después de sus últimos conciertos, Fito & Fitipaldis vuelven a la carretera con 'Aullidos Tour', una extensa gira que recorrerá 28 ciudades españolas y en la que, además de repasar los grandes éxitos de su carrera, presentarán su nuevo álbum 'El monte de los aullidos'.\nLa gira empezará en Santander en noviembre de 2025 y pasará por A Coruña, Santiago de Compostela, Zaragoza, Iruña-Pamplona, Gijón, Madrid, Bilbao, Barcelona, Valencia, Salamanca, Logroño, Granada, Murcia, Alicante, Ciudad Real, Las Palmas, Tenerife, Sevilla, Mallorca, Córdoba, Cáceres, Castellón, Albacete, Ponferrada, Valladolid, Cádiz y Fuengirola.\nFito & Fitipaldis se encuentran actualmente  grabando lo que será su nuevo disco 'El monte de los aullidos', su octavo trabajo de estudio, cuya publicación se espera para el próximo otoño. ",
     "fecha": {
       "fechaLarga": "12 de diciembre de 2025",
       "fechaCorta": "20/12/2025"
     },
     "lugar": "Palacio de Deportes, Gijón",
     "categoria": "Musica",
-    "imagen": null
+    "poster": "fito-y-fitipaldis.jpg",
+    "galeria": {
+        "1": "fito-y-fitipaldis.jpg",
+        "2": "fito-y-fitipaldis2.jpg"
+    }
   },
   { 
     "id": 13,
     "titulo": "Carnaval 2026",
     "descripcionCorta": "SIN DESCRIPCION",
+    "descripcionLarga": "",
     "fecha": {
       "fechaLarga": "12 de febrero de 2026",
       "fechaCorta": "12/2/2026"
     },
     "lugar": null,
     "categoria": "Celebraciones",
-    "imagen": null
+    "poster": "mario-pelicula.jpg",
+    "galeria": {
+        "1": "mario-pelicula.jpg"
+    }
   }
 ]

@@ -5,14 +5,17 @@ import '../assets/styles/styles.css'
 import MenuNav from '../MenuNav.jsx'
 import Lateral from '../Lateral.jsx'
 import Pie from '../Pie.jsx'
+import VisualizadorGaleria from '../VisualizadorGaleria.jsx'
 
 import datosEventos from "../../datos/eventos.json"
 
-const params = new URLSearchParams(window.location.search);
-const idEvento = params.get("id");
+const parametrosURL = new URLSearchParams(window.location.search);
+const idEvento = parametrosURL.get("id");
 
 const evento = datosEventos.find(event => event.id == idEvento);
 console.log(evento);
+
+const imagenPath = "src/assets/images/imagenesEventos/" + evento.id + "/"+ evento.poster
 
 const categoriasColor = new Map([
   ["musica", "rosa"],
@@ -30,15 +33,15 @@ createRoot(document.getElementById('root')).render(
 
   <>
     <header className='lg:h-13'>
-      <MenuNav pagina=""></MenuNav>
+      <MenuNav></MenuNav>
     </header>
 
     <section name="scroll" className="overflow-hidden overflow-x-hidden overflow-scroll h-full flex flex-col justify-between">
-      <main className='h-full w-full flex flex-row'>
+      <main className='h-fit w-full flex flex-row'>
         <Lateral />
         <section name="principal" className={"border-" + color + " border-3 w-full h-fit m-10 max-lg:m-6 p-10 bg-white rounded-lg shadow-md/20"}>
-          <div name="separador-imagen" className='flex flex-row justify-between space-x-10'>
-            <div name="informacion-del-evento">
+          <div name="separador-imagen" className='flex flex-row justify-between space-x-10 pb-10 max-h-100'>
+            <section name="informacion-del-evento">
               <h4 className={"text-" + color + " text-xl"}>{evento.categoria.toUpperCase()}</h4>
               <h1 className='text-3xl font-bold'>{evento.titulo}</h1>
 
@@ -47,12 +50,17 @@ createRoot(document.getElementById('root')).render(
                 <p className='text-xl'>{evento.lugar}</p>
               </div>
 
-              <p className='mt-8'>{evento.descripcionCorta}</p>
-            </div>
-            <img className='max-h-100 max-w-100 max-lg:max-w-80 rounded-lg shadow-md/30' src={"src/assets/images/" + evento.imagen} alt="poster del evento" />
+              <p className='mt-12'>{evento.descripcionCorta}</p>
+            </section>
+            <img name="poster" className='max-h-100 max-w-100 max-lg:max-w-80 rounded-lg shadow-md/30' src={imagenPath} alt="poster del evento" />
           </div>
-
-
+          <section name="seccion-descripcion">
+            <h3 className='font-bold'>Descripción</h3>
+            <p className='mt-4 text-lg'>{evento.descripcionLarga}</p>
+          </section>
+          <section name="seccion-galeria" className='mt-20'>
+            <VisualizadorGaleria evento={evento} galeria={evento.galeria}/>
+          </section>
         </section>
       </main>
       <Pie></Pie>
