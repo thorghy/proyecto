@@ -2,7 +2,7 @@
   { 
     "id": 1,
     "titulo": "Baile Salmantino de Año Nuevo",
-    "descripcion": "Los salmantinos de Mieres celebran el año nuevo con un novedoso baile en la plaza del ayuntamiento.",
+    "descripcionCorta": "Los salmantinos de Mieres celebran el año nuevo con un novedoso baile en la plaza del ayuntamiento.",
     "fecha": {
       "fechaLarga": "1 de enero de 2026",
       "fechaCorta": "1/1/2026"
@@ -14,7 +14,7 @@
   { 
     "id": 2,
     "titulo": "Cocina de Mazapán con curry",
-    "descripcion": "Aprende a cocinar mazapán con curry junto a actividades interactivas. Ideal para todas las edades.",
+    "descripcionCorta": "Aprende a cocinar mazapán con curry junto a actividades interactivas. Ideal para todas las edades.",
     "fecha": {
       "fechaLarga": "12 de enero de 2026",
       "fechaCorta": "12/1/2026"
@@ -26,7 +26,7 @@
   { 
     "id": 3,
     "titulo": "Concierto de una silla",
-    "descripcion": "Escucha a una silla cantar. Parte del Silla World Tour 2026.",
+    "descripcionCorta": "Escucha a una silla cantar. Parte del Silla World Tour 2026.",
     "fecha": {
       "fechaLarga": "24 de enero de 2026",
       "fechaCorta": "24/1/2026"
@@ -38,7 +38,7 @@
   { 
     "id": 4,
     "titulo": "1º Campeonato de petanca y escalope de Asturias",
-    "descripcion": "Primera de edición del nuevo e innovador campeonato de petanca y escalope. Precio entrada: 10€. La entrada es un ticket de una rifa para ganar un escalope.",
+    "descripcionCorta": "Primera de edición del nuevo e innovador campeonato de petanca y escalope. Precio entrada: 10€. La entrada es un ticket de una rifa para ganar un escalope.",
     "fecha": {
       "fechaLarga": "5 de junio de 2026",
       "fechaCorta": "5/6/2026"
@@ -50,7 +50,7 @@
   { 
     "id": 5,
     "titulo": "Piruetas robóticas",
-    "descripcion": "Diseña y construye un robot capaz de realizar piruetas con precisión milimétrica.",
+    "descripcionCorta": "Diseña y construye un robot capaz de realizar piruetas con precisión milimétrica.",
     "fecha": {
       "fechaLarga": "15 de junio de 2026",
       "fechaCorta": "15/6/2026"
@@ -62,7 +62,7 @@
   { 
     "id": 6,
     "titulo": "Día de la rúcula",
-    "descripcion": "Celebración anual del día de la rúcula. Rúcula gratis.",
+    "descripcionCorta": "Celebración anual del día de la rúcula. Rúcula gratis.",
     "fecha": {
       "fechaLarga": "25 de junio de 2026",
       "fechaCorta": "25/6/2026"
@@ -74,7 +74,7 @@
   { 
     "id": 7,
     "titulo": "Real Sporting vs Deportivo La Coruña",
-    "descripcion": "SIN DESCRIPCION",
+    "descripcionCorta": "SIN DESCRIPCION",
     "fecha": {
       "fechaLarga": "28 de marzo de 2026",
       "fechaCorta": "28/3/2026"
@@ -86,7 +86,7 @@
   { 
     "id": 8,
     "titulo": "Hoguera de San Juan 2026",
-    "descripcion": "SIN DESCRIPCION",
+    "descripcionCorta": "SIN DESCRIPCION",
     "fecha": {
       "fechaLarga": "23 de junio de 2026",
       "fechaCorta": "23/6/2026"
@@ -98,7 +98,7 @@
   { 
     "id": 9,
     "titulo": "Boombastic Asturias 2026",
-    "descripcion": "SIN DESCRIPCION",
+    "descripcionCorta": "SIN DESCRIPCION",
     "fecha": {
       "fechaLarga": "23 de junio de 2026",
       "fechaCorta": "23/6/2026"
@@ -110,7 +110,7 @@
   { 
     "id": 10,
     "titulo": "Estreno: Super Mario Galaxy: La película",
-    "descripcion": "SIN DESCRIPCION",
+    "descripcionCorta": "SIN DESCRIPCION",
     "fecha": {
       "fechaLarga": "1 de abril de 2026",
       "fechaCorta": "1/4/2026"
@@ -122,7 +122,7 @@
   { 
     "id": 11,
     "titulo": "Concierto La Oreja De Van Gogh Gijón",
-    "descripcion": "SIN DESCRIPCION",
+    "descripcionCorta": "SIN DESCRIPCION",
     "fecha": {
       "fechaLarga": "10 de julio de 2026",
       "fechaCorta": "10/7/2026"
@@ -134,7 +134,7 @@
   { 
     "id": 12,
     "titulo": "Concierto Fito y Fitipaldis",
-    "descripcion": "SIN DESCRIPCION",
+    "descripcionCorta": "SIN DESCRIPCION",
     "fecha": {
       "fechaLarga": "12 de diciembre de 2025",
       "fechaCorta": "20/12/2025"
@@ -146,7 +146,7 @@
   { 
     "id": 13,
     "titulo": "Carnaval 2026",
-    "descripcion": "SIN DESCRIPCION",
+    "descripcionCorta": "SIN DESCRIPCION",
     "fecha": {
       "fechaLarga": "12 de febrero de 2026",
       "fechaCorta": "12/2/2026"

@@ -47,7 +47,7 @@ createRoot(document.getElementById('root')).render(
                 <p className='text-xl'>{evento.lugar}</p>
               </div>
 
-              <p className='mt-8'>{evento.descripcion}</p>
+              <p className='mt-8'>{evento.descripcionCorta}</p>
             </div>
             <img className='max-h-100 max-w-100 max-lg:max-w-80 rounded-lg shadow-md/30' src={"src/assets/images/" + evento.imagen} alt="poster del evento" />
           </div>
