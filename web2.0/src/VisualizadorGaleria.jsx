@@ -14,7 +14,7 @@ function VisualizadorGaleria({ evento, galeria }) {
             <>
                 <div name="encabezado-galeria" className='flex flex-row space-x-4 mb-8'>
                     <h3 className='font-bold'>Galería</h3>
-                    <h3>Titulo de la galería IMPLEMENTAR</h3>
+                    <h3>{evento.titulo}</h3>
                 </div>
                 <section className="flex flex-row flex-wrap justify-between">
                     {

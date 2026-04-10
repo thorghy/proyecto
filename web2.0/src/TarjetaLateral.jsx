@@ -1,13 +1,37 @@
-function TarjetaLateral() {
+import datosEventos from "../datos/eventos.json"
+
+function TarjetaLateral({nEvento}) {
+
+    const evento = datosEventos.find(evento => evento.id == nEvento)
+
+    var imagenPath = "";
+    if (evento.poster != null) {
+        imagenPath = "src/assets/images/imagenesEventos/" + evento.id + "/"+ evento.poster
+    } else {
+        imagenPath = "src/assets/images/sin_imagen.png";
+    }
+
+    const categoriasColor = new Map([
+        ["musica", "rosa"],
+        ["cine", "azul"],
+        ["teatro", "azul"],
+        ["exposiciones", "naranja"]
+    ]);
+
+    let color = "gris"; // color por defecto
+    if (categoriasColor.has(evento.categoria.toLowerCase())) {
+        color = categoriasColor.get(evento.categoria.toLowerCase());
+    }
+
     return (
-        <article className="mb-4">
+        <article className="mb-8">
             <div
-                className="overflow-hidden mb-2 max-h-25 flex flex-col justify-center rounded-lg border-3 border-solid border-gris">
-                <img src="src\assets\images\molinon.jpg" alt="imagen del molinón" />
+                className={"border-"+ color + " overflow-hidden mb-2 max-h-35 flex flex-col justify-center rounded-lg border-3 border-solid"}>
+                <img src={imagenPath} alt="imagen del evento" />
             </div>
-            <h5 className="text-lg font-bold">Real Sporting vs Deportivo L...</h5>
-            <h6 className="text-base">28 de marzo de 2026 21:00</h6>
-            <p className="text-s mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h5 className="text-lg font-bold">{evento.titulo}</h5>
+            <h6 className="text-base">{evento.fecha.fechaCorta}</h6>
+                <p className="text-s mt-2 w-full w-fill">{evento.descripcionCorta}</p>
         </article>
     )
 }

@@ -10,7 +10,7 @@
     },
     "lugar": "Mieres del Camino",
     "categoria": "Celebraciones",
-    "poster": "poster.jpg",
+    "poster": null,
     "galeria": null
   },
   { 
@@ -71,7 +71,7 @@
     },
     "lugar": "Avilés",
     "categoria": "Actividades",
-    "poster": "petanca-y-escalope.jpg",
+    "poster": null,
     "galeria": null
   },
   { 
@@ -85,8 +85,10 @@
     },
     "lugar": "Villaviciosa",
     "categoria": "Celebraciones",
-    "poster": "petanca-y-escalope.jpg",
-    "galeria": null
+    "poster": "rucula.jpg",
+    "galeria": {
+      "1": "rucula.jpg"
+    }
   },
   { 
     "id": 7,
@@ -163,7 +165,7 @@
     },
     "lugar": "Gijón Life",
     "categoria": "Musica",
-    "poster": "mario-pelicula.jpg",
+    "poster": null,
     "galeria": null
   },
   { 
@@ -182,7 +184,7 @@
         "1": "fito-y-fitipaldis.jpg",
         "2": "fito-y-fitipaldis2.jpg"
     }
-  },
+  },  
   { 
     "id": 13,
     "titulo": "Carnaval 2026",
@@ -194,9 +196,7 @@
     },
     "lugar": null,
     "categoria": "Celebraciones",
-    "poster": "mario-pelicula.jpg",
-    "galeria": {
-        "1": "mario-pelicula.jpg"
-    }
+    "poster": null,
+    "galeria": null 
   }
 ]
