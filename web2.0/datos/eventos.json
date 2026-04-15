@@ -10,8 +10,13 @@
     },
     "lugar": "Mieres del Camino",
     "categoria": "Celebraciones",
-    "poster": null,
-    "galeria": null
+    "poster": "bailarines-1.jpg",
+    "galeria": {
+      "1": "bailarines-1.jpg",
+      "2": "bailarines-2.jpg",
+      "3": "bailarines-3.jpg",
+      "4": "bailarines-4.jpg"
+    }
   },
   { 
     "id": 2,
@@ -24,8 +29,10 @@
     },
     "lugar": "Oviedo",
     "categoria": "Actividades",
-    "poster": null,
-    "galeria": null
+    "poster": "curry.jpg",
+    "galeria": {
+      "1": "curry.jpg"
+    }
   },
   { 
     "id": 3,
@@ -56,9 +63,7 @@
     "lugar": "Gijón",
     "categoria": "Deportes",
     "poster": "petanca-y-escalope.jpg",
-    "galeria": {
-        "1": "petanca-y-escalope.jpg"
-    }
+    "galeria": null
   },
   { 
     "id": 5,
@@ -71,7 +76,7 @@
     },
     "lugar": "Avilés",
     "categoria": "Actividades",
-    "poster": null,
+    "poster": "robot.jpg",
     "galeria": null
   },
   { 
@@ -86,9 +91,7 @@
     "lugar": "Villaviciosa",
     "categoria": "Celebraciones",
     "poster": "rucula.jpg",
-    "galeria": {
-      "1": "rucula.jpg"
-    }
+    "galeria": null
   },
   { 
     "id": 7,
@@ -101,9 +104,11 @@
     },
     "lugar": "Estadio el Molinón, Gijón",
     "categoria": "Deportes",
-    "poster": "molinon.jpg",
+    "poster": "sporting-1.jpg",
     "galeria": {
-        "1": "molinon.jpg"
+        "1": "molinon.jpg",
+        "2": "sporting-1.jpg",
+        "3": "sporting-2.webp"
     }
   },
   { 
@@ -118,9 +123,7 @@
     "lugar": null,
     "categoria": "Celebraciones",
     "poster": "san-juan.jpg",
-    "galeria": {
-        "1": "san-juan.jpg"
-    }
+    "galeria": null
   },
   { 
     "id": 9,
@@ -134,9 +137,7 @@
     "lugar": "Llanera",
     "categoria": "Musica",
     "poster": "boombastic.jpg",
-    "galeria": {
-        "1": "boombastic.jpg"
-    }
+    "galeria": null
   },
   { 
     "id": 10,
@@ -165,7 +166,7 @@
     },
     "lugar": "Gijón Life",
     "categoria": "Musica",
-    "poster": null,
+    "poster": "oreja-gira-2026.jpg",
     "galeria": null
   },
   { 
@@ -196,7 +197,12 @@
     },
     "lugar": null,
     "categoria": "Celebraciones",
-    "poster": null,
-    "galeria": null 
+    "poster": "carnaval-1.jpg",
+    "galeria": {
+      "1": "carnaval-1.jpg",
+      "2": "carnaval-2.jpg",
+      "3": "carnaval-3.jpg",
+      "4": "carnaval-4.jpg"
+    } 
   }
 ]

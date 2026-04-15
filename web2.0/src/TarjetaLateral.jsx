@@ -1,4 +1,5 @@
 import datosEventos from "../datos/eventos.json"
+import getColor from "./scripts/getColor";
 
 function TarjetaLateral({nEvento}) {
 
@@ -11,17 +12,8 @@ function TarjetaLateral({nEvento}) {
         imagenPath = "src/assets/images/sin_imagen.png";
     }
 
-    const categoriasColor = new Map([
-        ["musica", "rosa"],
-        ["cine", "azul"],
-        ["teatro", "azul"],
-        ["exposiciones", "naranja"]
-    ]);
-
-    let color = "gris"; // color por defecto
-    if (categoriasColor.has(evento.categoria.toLowerCase())) {
-        color = categoriasColor.get(evento.categoria.toLowerCase());
-    }
+    const categoria = evento.categoria;
+    const color = getColor({categoria});
 
     return (
         <article className="mb-8">
