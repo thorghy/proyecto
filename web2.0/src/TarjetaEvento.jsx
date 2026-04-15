@@ -38,7 +38,7 @@ function TarjetaEvento({ id, titulo, descripcionCorta, fecha, lugar, categoria, 
                 <img name="imagen" className="object-cover h-full" src={imagenPath} alt="imagen del evento" />
             </div>
             <div className="flex flex-col justify-start pl-5 pr-2 py-2 w-full">
-                <div className="flex flex-col mb-2">
+                <div className="flex flex-col mb-2 max-h-9/20">
                     <h4 name="titulo" className="font-bold text-xl max-md:text-lg">
                         {titulo}
                         <span name="categoria" className={"text-" + color + " text-lg max-md:text-base font-normal ml-4 "}>{categoria.toUpperCase()}</span>
@@ -50,7 +50,7 @@ function TarjetaEvento({ id, titulo, descripcionCorta, fecha, lugar, categoria, 
                         <p name="descripcion" className="text-base">{descripcionCorta}</p>
                     </div>
                     
-                    <div className="flex flex-col-reverse items-end w-40">
+                    <div className="flex flex-col-reverse items-end w-40 mr-2">
                         <a href={"../evento.html?id=" + id}>
                             <button className={"bg-" + color + " w-30 h-10 rounded-lg m-2 text-white"}  >Ver más</button>
                         </a>
