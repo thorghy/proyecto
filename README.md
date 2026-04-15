@@ -28,3 +28,6 @@ Para consultar si tiene Node.js instalado, ejecute el sigiuente comando en comma
 4. Ejecutar el siguiente comando:
 `npm run dev`
 5. Hacer click en el enlace que aparece en el cmd. Si no deja hacer click, puede copiar y pegar el enlace en su navegador.
+
+### Funcionamiento de la web
+Haga click [aquí](./funcionamiento_web.md) para ver la documentación del funcionamiento de la web.
