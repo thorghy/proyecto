@@ -9,18 +9,7 @@ function Eventos({mostrarEventosProximos}) {
             <h2 className="mt-4 mb-4">{mostrarEventosProximos ? "Próximos eventos" : "Historial de eventos"}</h2>
 
             {datosEventos.map(evento =>
-                <TarjetaEvento 
-                key={evento.id}
-                id={evento.id}
-                titulo={evento.titulo}
-                descripcionCorta={evento.descripcionCorta}
-                fecha={evento.fecha}
-                lugar={evento.lugar}
-                categoria={evento.categoria}
-                poster={evento.poster}
-                galeria={evento.galeria}
-                mostrarEventosProximos={mostrarEventosProximos}
-                />
+                <TarjetaEvento key={evento.id} evento={evento} mostrarEventosProximos={mostrarEventosProximos}/>
             )}
             <p className="self-center mt-6">No hay más eventos para mostrar.</p>
         </section>

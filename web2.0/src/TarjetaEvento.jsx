@@ -1,9 +1,9 @@
 import getColor from "./scripts/getColor";
 
-function TarjetaEvento({ id, titulo, descripcionCorta, fecha, lugar, categoria, poster, mostrarEventosProximos }) {
+function TarjetaEvento({ evento, mostrarEventosProximos }) {
 
-    const fechaCorta = fecha.fechaCorta;
-    const fechaLarga = fecha.fechaLarga;
+    const fechaCorta = evento.fecha.fechaCorta;
+    const fechaLarga = evento.fecha.fechaLarga;
 
     function cambiarFormatoFecha(fechaACambiar) {
         const [dia, mes, año] = fechaACambiar.split("/").map(Number);
@@ -20,16 +20,17 @@ function TarjetaEvento({ id, titulo, descripcionCorta, fecha, lugar, categoria, 
     }
 
     var imagenPath = "";
-    if (poster != null) {
-        imagenPath = "src/assets/images/imagenesEventos/" + id + "/"+ poster
+    if (evento.poster != null) {
+        imagenPath = "src/assets/images/imagenesEventos/" + evento.id + "/"+ evento.poster
     } else {
         imagenPath = "src/assets/images/sin_imagen.png";
     }
 
+    const categoria = evento.categoria;
     const color = getColor({categoria});
 
-    if (poster == null) {
-        poster = "sin_imagen.png";
+    if (evento.poster == null) {
+        evento.poster = "sin_imagen.png";
     }
 
     return (
@@ -40,24 +41,23 @@ function TarjetaEvento({ id, titulo, descripcionCorta, fecha, lugar, categoria, 
             <div className="flex flex-col justify-start pl-5 pr-2 py-2 w-full">
                 <div className="flex flex-col mb-2 max-h-9/20">
                     <h4 name="titulo" className="font-bold text-xl max-md:text-lg">
-                        {titulo}
+                        {evento.titulo}
                         <span name="categoria" className={"text-" + color + " text-lg max-md:text-base font-normal ml-4 "}>{categoria.toUpperCase()}</span>
                     </h4>
-                    <h5 name="fecha-y-lugar" className="text-lg max-md:text-base">{fechaLarga} &#x2022; {lugar}</h5>
+                    <h5 name="fecha-y-lugar" className="text-lg max-md:text-base">{fechaLarga} &#x2022; {evento.lugar}</h5>
                 </div>
                 <div className="flex flex-row justify-between w-full h-full">
                     <div name="contenedor-descripcion" className="overflow-hidden max-h-22">
-                        <p name="descripcion" className="text-base">{descripcionCorta}</p>
+                        <p name="descripcionCorta" className="text-base">{evento.descripcionCorta}</p>
                     </div>
                     
                     <div className="flex flex-col-reverse items-end w-40 mr-2">
-                        <a href={"../evento.html?id=" + id}>
-                            <button className={"bg-" + color + " w-30 h-10 rounded-lg m-2 text-white"}  >Ver más</button>
+                        <a href={"../evento.html?id=" + evento.id}>
+                            <button className={"bg-" + color + " w-30 h-10 rounded-lg m-2 text-white"}>Ver más</button>
                         </a>
                     </div>
                 </div>
             </div>
-
         </article>
     )
 }
