@@ -1,19 +1,13 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import '../assets/styles/styles.css'
 
 import MenuNav from '../MenuNav.jsx'
-import Lateral from '../Lateral.jsx'
 import Pie from '../Pie.jsx'
-import MenuConfiguracion from '../MenuConfiguracion.jsx'
-import EventoDestacado from "../EventoDestacado"
-import OpcionesBusqueda from "../OpcionesBusqueda"
-import Eventos from "../Eventos"
 
 createRoot(document.getElementById('root')).render(
   <>
     <header className='lg:h-13'>
-      <MenuNav pagina="fuentes"></MenuNav>
+      <MenuNav pagina="sobre-nosotros"></MenuNav>
     </header>
 
     <section name="scroll" className="overflow-hidden overflow-x-hidden overflow-scroll h-full flex flex-col justify-between">

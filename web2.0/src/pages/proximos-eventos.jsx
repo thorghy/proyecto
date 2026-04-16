@@ -5,9 +5,6 @@ import '../assets/styles/styles.css'
 import MenuNav from '../MenuNav.jsx'
 import Lateral from '../Lateral.jsx'
 import Pie from '../Pie.jsx'
-import MenuConfiguracion from '../MenuConfiguracion.jsx'
-import EventoDestacado from "../EventoDestacado"
-import OpcionesBusqueda from "../OpcionesBusqueda"
 import Eventos from "../Eventos"
 
 createRoot(document.getElementById('root')).render(
@@ -20,7 +17,6 @@ createRoot(document.getElementById('root')).render(
       <main className='h-fit w-full flex flex-row'>
         <Lateral />
         <section name="principal" className="w-full h-fit pb-10 pt-4">
-            <OpcionesBusqueda/>
             <Eventos mostrarEventosProximos={true} />
         </section>
       </main>

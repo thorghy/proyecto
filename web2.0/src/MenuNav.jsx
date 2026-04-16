@@ -16,9 +16,6 @@ function MenuNav({pagina}) {
           <li><a className={pagina == "contacto" ? "font-bold" : ""} href="../contacto.html">Contacto</a></li>
         </ul>
       </div>
-      <button>
-        <img className="h-12" src={settingsImg} alt="configuración" />
-      </button>
     </nav>
   )
 }
