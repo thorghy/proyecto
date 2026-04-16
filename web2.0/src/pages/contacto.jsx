@@ -1,9 +1,8 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import '../assets/styles/styles.css'
 
-import MenuNav from '../MenuNav.jsx'
-import Pie from '../Pie.jsx'
+import MenuNav from '../componentes_principales/MenuNav.jsx'
+import Pie from '../componentes_principales/Pie.jsx'
 import MenuContacto from '../MenuContacto.jsx'
 
 createRoot(document.getElementById('root')).render(

@@ -1,5 +1,5 @@
-import TarjetaEvento from "./TarjetaEvento"
-import datosEventos from "../datos/eventos.json"
+import TarjetaEvento from "../TarjetaEvento"
+import datosEventos from "../../datos/eventos.json"
 
 function Eventos({mostrarEventosProximos}) {
     var titulo = "";

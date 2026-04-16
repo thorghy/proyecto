@@ -2,8 +2,8 @@ function Pie() {
     return (
         <footer className="text-white text-lg px-5 pb-2 pt-4 bg-rosa min-h-40 h-40 flex flex-row justify-between">
             <div className="flex flex-row items space-x-8 h-fit">
-                <button>Sobre nosotros</button>
-                <button>Contacto</button>
+                <a href="../sobre-nosotros.html"><button>Sobre nosotros</button></a>
+                <a href="../contacto.html"><button>Contacto</button></a>
             </div>
             <div className="flex flex-col justify-between">
                 <div className="flex flex-row-reverse items-center space-x-4">

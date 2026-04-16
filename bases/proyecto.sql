@@ -40,6 +40,7 @@ create table favoritos (
     idUsuario int,
     idEvento int,
     
+    constraint pk_favoritos primary key(idUsuario, idEvento),
     constraint fk_favUsuario foreign key(idUsuario) references usuarios(idUsuario),
     constraint fk_favEvento foreign key(idEvento) references eventos(idEvento)
 );
@@ -58,8 +59,6 @@ insert into eventos values(11, '10-08-2026', 'Concierto La Oreja De Van Gogh Gij
 insert into eventos values(12, '20-12-2025', 'Concierto Fito y Fitipaldis', 'Palacio de Deportes, Gijón', 'SIN DESCRIPCION');
 insert into eventos values(13, '12-02-2026', 'Carnaval 2026', null, 'SIN DESCRIPCION');
 
-select * from eventos
-order by idevento;
 insert into usuarios values(1, 'hector', 'hector@hector.es', 'h3ct0r');
 insert into usuarios values(2, 'misterqueso', 'quesoparmesano@gmail.com', 'quesolover123'); 
 insert into usuarios values(3, 'petancayescalope', 'soporte@petancayescalope.es', 'contraseña');

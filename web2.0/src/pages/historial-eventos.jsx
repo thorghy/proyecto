@@ -1,14 +1,11 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import '../assets/styles/styles.css'
 
-import MenuNav from '../MenuNav.jsx'
-import Lateral from '../Lateral.jsx'
-import Pie from '../Pie.jsx'
-import MenuConfiguracion from '../MenuConfiguracion.jsx'
-import EventoDestacado from "../EventoDestacado"
+import MenuNav from '../componentes_principales/MenuNav.jsx'
+import Lateral from '../componentes_principales/Lateral.jsx'
+import Pie from '../componentes_principales/Pie.jsx'
 import OpcionesBusqueda from "../OpcionesBusqueda"
-import Eventos from "../Eventos"
+import Eventos from "../componentes_principales/Eventos"
 
 createRoot(document.getElementById('root')).render(
   <>

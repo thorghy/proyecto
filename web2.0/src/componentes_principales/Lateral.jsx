@@ -1,4 +1,4 @@
-import TarjetaLateral from "./TarjetaLateral"
+import TarjetaLateral from "../TarjetaLateral"
 
 function Lateral() {
 

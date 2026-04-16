@@ -1,5 +1,4 @@
-import logo from "./assets/images/logos/happines-and-co-propuesta-06.jpg"
-import settingsImg from "./assets/icons/settings.png"
+import logo from "../assets/images/logos/happines-and-co-propuesta-06.jpg"
 
 function MenuNav({pagina}) {
 
