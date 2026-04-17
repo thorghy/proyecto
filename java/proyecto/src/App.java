@@ -7,7 +7,17 @@ import java.util.Scanner;
  * @author Héctor García Menéndez
  * @version 1.4
  */
+
 public class App {
+    /* ===== COLORES DE TEXTO ===== */
+
+    public static final String ANSI_RESET = "\u001B[0m";
+
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_PURPLE  = "\u001B[35m";
 
     /**
      * Contardor del ID de eventos
@@ -49,21 +59,27 @@ public class App {
          */
         ArrayList<Favorito> favoritos = new ArrayList<>();
 
+        Evento evento1 = new Evento(8, "28-11-2025", "Show de jirafas", "Gijón", "Visita un show de jirafas en Gijón");
+        eventos.put(evento1.getId(), evento1);
+
+        Usuario usuario1 = new Usuario("nombreDeUsuaio1", "usuario1@gmail.com", "contraseña123");
+        usuarios.put(usuario1.getEmail(), usuario1);
+
         int resp;
         do {
-            System.out.println("----- MENÚ -----");
-            System.out.println("1. Añadir usuario");
-            System.out.println("2. Eliminar usuario");
-            System.out.println("3. Añadir evento");
-            System.out.println("4. Eliminar evento");
-            System.out.println("5. Añadir galería");
-            System.out.println("6. Eliminar galería");
-            System.out.println("7. Añadir favorito");
-            System.out.println("8. Eliminar favorito");
-            System.out.println("9. Salir");
+            lanzarInfo("< ========== MENÚ ========== >");
+            lanzarInfo("1. Añadir usuario");
+            lanzarInfo("2. Eliminar usuario");
+            lanzarInfo("3. Añadir evento");
+            lanzarInfo("4. Eliminar evento");
+            lanzarInfo("5. Añadir galería");
+            lanzarInfo("6. Eliminar galería");
+            lanzarInfo("7. Añadir favorito");
+            lanzarInfo("8. Eliminar favorito");
+            lanzarInfo("9. Salir");
             System.out.println();
-            System.out.println("--------------");
-            System.out.println("Introduzca opción...");
+
+            pedirInput("Introduzca opción...");
             
             resp = teclado.nextInt();
             teclado.nextLine();
@@ -82,9 +98,7 @@ public class App {
                     eventos = removeEvento(teclado, eventos);
                     break;
                 case 5:
-                    HashMap<Integer, Evento> eventos_temp = addGaleria(teclado, eventos);
-                    if (eventos_temp!=null) eventos=eventos_temp;
-                    else System.out.println("*** ERROR: El evento al que añades la galeria no existe ***");
+                    eventos = addGaleria(teclado, eventos);
                     break;
                 case 6:
                     eventos = removeGaleria(teclado, eventos);
@@ -96,10 +110,10 @@ public class App {
                     favoritos = removeFavorito(teclado, favoritos);
                     break;
                 case 9:
-                    System.out.println("*** Saliendo... ***");
+                    lanzarCorrecto("Saliendo...");
                     break;
                 default:
-                    System.out.println("*** ERROR: Opción no válida. Introduzca una opción entre [1] y [8]. Introduzca [9] para salir. ***");
+                    lanzarError("ERROR: Opción no válida. Introduzca una opción entre [1] y [8]. Introduzca [9] para salir.");
                     break;
             }
 
@@ -115,27 +129,22 @@ public class App {
      * @return usuarios
      */
     public static HashMap<String, Usuario> addUsuario(Scanner teclado, HashMap<String, Usuario> usuarios) {
-        System.out.println("- - - Creación de usuario - - -");
+        lanzarInfo("========== Creación de usuario ==========");
 
-        System.out.println("--------------");
-        System.out.println("Introduzca el nombre del usuario...");
+        pedirInput("Introduzca el nombre del usuario...");
         String nombre = teclado.nextLine();
-
-        System.out.println("--------------");
-        System.out.println("Introduzca el email del usuario...");
+        pedirInput("Introduzca el email del usuario...");
         String email = teclado.nextLine();
-
-        System.out.println("--------------");
-        System.out.println("Introduzca la contraseña del usuario...");
+        pedirInput("Introduzca la contraseña del usuario...");
         String password = teclado.nextLine();
 
         Usuario usuario = new Usuario(nombre, email, password);
 
         if (usuarios.containsKey(email)) {
-            System.out.println("*** ERROR: El usuario ya existe. ***");
+            lanzarError("ERROR: El usuario ya existe.");
         } else {
             usuarios.put(email, usuario);
-            System.out.println("*** Usuario creado correctamente. ***");
+            lanzarCorrecto("Usuario creado correctamente.");
         }
 
         return usuarios;
@@ -149,22 +158,22 @@ public class App {
      * @return usuarios
      */
     public static HashMap<String, Usuario> removeUsuario(Scanner teclado, HashMap<String, Usuario> usuarios) {
+        lanzarInfo("========== Borrado de usuario ==========");
+
+        // Ver si hay usuarios
         if (usuarios.isEmpty()) {
-            System.out.println("*** ERROR: No hay usuarios para eliminar. ***");
+            lanzarError("ERROR: No hay usuarios para eliminar.");
             return usuarios;
         }
 
-        System.out.println("- - - Borrado de usuario - - -");
-
-        System.out.println("--------------");
-        System.out.println("Introduzca correo del usuario que desea eliminar...");
+        pedirInput("Introduzca correo del usuario que desea eliminar...");
         String email = teclado.nextLine();
 
         if (!usuarios.isEmpty() && usuarios.containsKey(email)) {
             usuarios.remove(email);
-            System.out.println("*** Usuario eliminado correctamente. ***");
+            lanzarCorrecto("Usuario eliminado correctamente.");
         } else {
-            System.out.println("*** ERROR: El usuario no existe. ***");
+            lanzarError("ERROR: El usuario no existe.");
         }
 
         return usuarios;
@@ -179,27 +188,19 @@ public class App {
      * @return eventos
      */
     public static HashMap<Integer, Evento> addEvento(Scanner teclado, HashMap<Integer, Evento> eventos, int contadorIDEvento) {
-        System.out.println("- - - Creación de evento - - -");
-
-        System.out.println("--------------");
-        System.out.println("Introduzca la fecha...");
+        lanzarInfo("========== Creación de evento ==========");
+        pedirInput("Introduzca la fecha...");
         String fecha = teclado.nextLine();
-
-        System.out.println("--------------");
-        System.out.println("Introduzca el título...");
+        pedirInput("Introduzca el título...");
         String titulo = teclado.nextLine();
-
-        System.out.println("--------------");
-        System.out.println("Introduzca la ubicación...");
+        pedirInput("Introduzca la ubicación...");
         String ubicacion = teclado.nextLine();
-
-        System.out.println("--------------");
-        System.out.println("Introduzca la descripción...");
+        pedirInput("Introduzca la descripción...");
         String descripcion = teclado.nextLine();
 
         Evento evento = new Evento(contadorIdEvento, fecha, titulo, ubicacion, descripcion);
         eventos.put(evento.getId(), evento);
-        System.out.println("*** Evento creado correctamente ***");
+        lanzarCorrecto("Evento creado correctamente");
 
         contadorIdEvento++;
         return eventos;
@@ -213,25 +214,23 @@ public class App {
      * @return eventos
      */
     public static HashMap<Integer, Evento> removeEvento(Scanner teclado, HashMap<Integer, Evento> eventos) {
-        System.out.println("- - - Borrado de evento - - -");
+        lanzarInfo("========== Borrado de evento ==========");
 
         if (eventos.isEmpty()) {
-            System.out.println("*** ERROR: No hay eventos para eliminar. ***");
+            lanzarError("ERROR: No hay eventos para eliminar.");
             return eventos;
         }
 
         // Mostrar eventos
         mostrarEventos(eventos);
-
-        System.out.println("--------------");
-        System.out.println("Introduzca el ID del evento que desea eliminar...");
+        pedirInput("Introduzca el ID del evento que desea eliminar...");
         int id = teclado.nextInt();
         teclado.nextLine();
         
         if (eventos.containsKey(id)) {
             eventos.remove(id);
-            System.out.println("***Evento eliminado correctamente***");
-        } else System.out.println("*** ERROR: El evento no existe***");
+            lanzarCorrecto("Evento eliminado correctamente");
+        } else lanzarError("ERROR: El evento no existe");
 
         return eventos;
     }
@@ -244,23 +243,23 @@ public class App {
      * @return eventos
      */
     public static HashMap<Integer, Evento> addGaleria(Scanner teclado, HashMap<Integer, Evento> eventos) {
+        lanzarInfo("========== Creación de galería ==========");
+
         // Ver si hay eventos
         if (eventos.isEmpty()) {
-            System.out.println("*** ERROR: No hay eventos disponibles. ***");
+            lanzarError("ERROR: No hay eventos disponibles.");
             return eventos;
         }
 
-        System.out.println("- - - Creación de galería - - -");
         // Mostrar eventos
         mostrarEventos(eventos);
 
         int idEvento = seleccionarEvento(teclado, eventos);
-        if (idEvento == -1) return null;
+        if (idEvento == -1) return eventos;
         Evento evento = eventos.get(idEvento);
 
-        // Introducir datos de la galería
-        System.out.println("--------------");
-        System.out.println("Introduzca el título de la galería...");
+        // Introducir datos de la galerí
+        pedirInput("Introduzca el título de la galería...");
         String titulo = teclado.nextLine();
 
         Galeria galeria = new Galeria(contadorIdGaleria, titulo, idEvento);
@@ -268,7 +267,7 @@ public class App {
 
         // Añadir galería a la colección de galerías
         galeriasEvento.put(galeria.getId(), galeria);
-        System.out.println("*** Galería creada correctamente. ***");
+        lanzarCorrecto("Galería creada correctamente.");
         contadorIdGaleria++;
 
         return eventos;
@@ -282,13 +281,14 @@ public class App {
      * @return eventos
      */
     public static HashMap<Integer, Evento> removeGaleria(Scanner teclado, HashMap<Integer, Evento> eventos) {
+        lanzarInfo("========== Borrado de galería ==========");
+
         // Ver si hay eventos
         if (eventos.isEmpty()) {
-            System.out.println("*** ERROR: No hay eventos disponibles. ***");
+            lanzarError("ERROR: No hay eventos disponibles.");
             return eventos;
         }
 
-        System.out.println("- - - Borrado de galería - - -");
         // Mostrar eventos
         mostrarEventos(eventos);
 
@@ -299,7 +299,7 @@ public class App {
 
         // Ver si hay galerías
         if (evento.getGalerias().isEmpty()) {
-            System.out.println("*** ERROR: No hay galerías disponibles. **");
+            lanzarError("ERROR: No hay galerías disponibles.");
             return eventos;
         }
 
@@ -311,7 +311,7 @@ public class App {
         if (idGaleria == -1) return eventos;
 
         evento.getGalerias().remove(idGaleria);
-        System.out.println("*** Galería eliminada correctamente. ***");
+        lanzarCorrecto("Galería eliminada correctamente.");
 
         return eventos;
     }
@@ -326,6 +326,8 @@ public class App {
      * @return favoritos
      */
     public static ArrayList<Favorito> addFavorito(Scanner teclado, HashMap<Integer, Evento> eventos, HashMap<String, Usuario> usuarios, ArrayList<Favorito> favoritos) {
+        lanzarInfo("========== Creación de favoritos ==========");
+
         // Mostrar eventos
         mostrarEventos(eventos);
 
@@ -342,6 +344,7 @@ public class App {
         // Añadir favorito
         Favorito favorito = new Favorito(idUsuario, idEvento);
         favoritos.add(favorito);
+        lanzarCorrecto("Favorito creado correctamente.");
 
         return favoritos;
     }
@@ -354,29 +357,29 @@ public class App {
      * @return favoritos
      */
     public static ArrayList<Favorito> removeFavorito(Scanner teclado, ArrayList<Favorito> favoritos) {
+       lanzarInfo("========== Borrado de favoritos ==========");
+       
         // Mostrar favoritos
         mostrarFavoritos(favoritos);
 
-        // Seleccionar evento
-        System.out.println("--------------");
-        System.out.println("Seleccione evento...");
+        // Seleccionar event
+        pedirInput("Seleccione evento...");
         int idEvento = teclado.nextInt();
         teclado.nextLine();
 
         // Seleccionar usuario por email
-        System.out.println("--------------");
-        System.out.println("Seleccionar usuario (email)...");
+        pedirInput("Seleccionar usuario (email)...");
         String idUsuario = teclado.nextLine();
 
         // Buscar si existe el favorito
         for (Favorito favorito : favoritos) {
             if (favorito.getIdEvento() == idEvento && favorito.getEmail().equals(idUsuario)) {
                 favoritos.remove(favorito);
-                System.out.println("*** Favorito eliminado correctamente. ***");
+                lanzarCorrecto("Favorito eliminado correctamente.");
                 return favoritos;
             }
         }
-        System.out.println("*** ERROR: El favorito no existe. ***");
+        lanzarError("ERROR: El favorito no existe.");
         return favoritos;
     }
 
@@ -388,14 +391,13 @@ public class App {
      */
     public static int seleccionarEvento(Scanner teclado, HashMap<Integer, Evento> eventos) {
         // Selección de evento
-        System.out.println("--------------");
-        System.out.println("Introduzca el ID del evento que quiere seleccionar...");
+        pedirInput("Introduzca el ID del evento que quiere seleccionar...");
         int idEvento = teclado.nextInt();
         teclado.nextLine();
 
         // Ver si existe el evento seleccionado
         if (!eventos.containsKey(idEvento))  {
-            System.out.println("*** ERROR: El ID introducido no es correcto o no existe. ***");
+            lanzarError("ERROR: El ID introducido no es correcto o no existe.");
             return -1;
         }
         return idEvento;
@@ -403,14 +405,13 @@ public class App {
 
     public static int seleccionarGaleria(Scanner teclado, Evento evento) {
         // Selección de galería
-        System.out.println("--------------");
-        System.out.println("Introduzca el ID de la galería que quiere seleccionar...");
+        pedirInput("Introduzca el ID de la galería que quiere seleccionar...");
         int idGaleria = teclado.nextInt();
         teclado.nextLine();
 
         // Ver si existe la galeria seleccionada
         if (!evento.getGalerias().containsKey(idGaleria))  {
-            System.out.println("*** ERROR: El ID introducido no es correcto. ***");
+            lanzarError("ERROR: El ID introducido no es correcto.");
             return -1;
         }
         return idGaleria;
@@ -418,47 +419,70 @@ public class App {
 
     public static String seleccionarUsuario(Scanner teclado, HashMap<String, Usuario> usuarios) {
         // Selección de usuario
-        System.out.println("--------------");
-        System.out.println("Introduzca el ID del usuario que quiere seleccionar...");
+        pedirInput("Introduzca el ID del usuario que quiere seleccionar...");
         String idUsuario = teclado.nextLine();
 
         // Ver si existe el usuario seleccionado
         if (!usuarios.containsKey(idUsuario))  {
-            System.out.println("*** ERROR: El ID introducido no es correcto. ***");
+            lanzarError("ERROR: El ID introducido no es correcto.");
             return "";
         }
         return idUsuario;
     }
 
     public static void mostrarEventos(HashMap<Integer, Evento> eventos) {
-        System.out.println("IDEVENTO | TÍTULO");
-        System.out.println();
-        eventos.forEach((clave,valor) -> System.out.println(clave + ": " + valor.getTitulo()));
+        lanzarTabla("----- Tabla de eventos (id: título) -----");
+
+        eventos.forEach((clave,valor) -> lanzarTabla(clave + ": " + valor.getTitulo()));
        /*  for (Map.Entry<Integer, Evento> evento : eventos.entrySet()) {
             System.out.println(evento.getKey() + ": " + evento.getValue().getTitulo());
         }*/
     }
 
     public static void mostrarGalerias(Evento evento) {
-        System.out.println("IDGALERIA | TÍTULO");
-        System.out.println();
+        lanzarTabla("----- Tabla de galerías (id: título) -----");
+
         for (Map.Entry<Integer, Galeria> galeria : evento.getGalerias().entrySet()) {
-            System.out.println(galeria.getKey() + ": " + galeria.getValue().getTitulo());
+            lanzarTabla(galeria.getKey() + ": " + galeria.getValue().getTitulo());
         }
     }
 
     public static void mostrarUsuarios(HashMap<String, Usuario> usuarios) {
-        System.out.println("IDUSUARIO | NOMBRE");
+        lanzarTabla("----- Tabla de usuarios email: nombre) -----");
+
         for (Map.Entry<String, Usuario> usuario : usuarios.entrySet()) {
-            System.out.println(usuario.getKey() + ": " + usuario.getValue().getNombre());
+            lanzarTabla(usuario.getKey() + ": " + usuario.getValue().getNombre());
         }
     }
 
     public static void mostrarFavoritos(ArrayList<Favorito> favoritos) {
-        System.out.println("USUARIO | EVENTO");
-        System.out.println();
+        lanzarTabla("----- Tabla de favoritos (usuario: evento) -----");
         for (Favorito favorito : favoritos) {
-            System.out.println("Usuario: " + favorito.getEmail() + " | " + "Evento: " + favorito.getIdEvento());
+            lanzarTabla("Usuario: " + favorito.getEmail() + " | " + "Evento: " + favorito.getIdEvento());
         }
+    }
+
+    public static void lanzarError(String e) {
+        System.out.println(ANSI_RED + e + ANSI_RESET);
+    }
+
+    public static void lanzarCorrecto(String s) {
+        System.out.println(ANSI_GREEN + s + ANSI_RESET);
+    }
+
+    public static void pedirInput(String s) {
+        System.out.println(ANSI_YELLOW + s + ANSI_RESET);
+    }
+
+    public static void lanzarInfo(String s) {
+        System.out.println(ANSI_BLUE + s + ANSI_RESET);
+    }
+
+    public static void lanzarTabla(String s) {
+        System.out.println(ANSI_PURPLE + s + ANSI_RESET);
+    }
+    
+    public static void lineaSeparar() {
+        lanzarInfo("--------------------");
     }
 }

@@ -17,7 +17,6 @@ createRoot(document.getElementById('root')).render(
       <main className='h-fit w-full flex flex-row'>
         <Lateral />
         <section name="principal" className="w-full h-fit pb-10 pt-4">
-            <OpcionesBusqueda/>
             <Eventos mostrarEventosProximos={false} />
         </section>
       </main>

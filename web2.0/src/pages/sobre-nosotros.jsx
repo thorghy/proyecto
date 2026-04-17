@@ -17,7 +17,7 @@ createRoot(document.getElementById('root')).render(
         <section name="principal" className="border-rosa border-3 w-fit h-fit m-10 max-lg:m-6 p-14 bg-white rounded-lg shadow-md/20">
           <h2>Sobre nosotros</h2>
           <h3 className='mt-10'>La empresa</h3>
-          <section name="imagenes" className='flex flex-col items-center w-280 mt-6 rounded-lg border-3 border-rosa'>
+          <section name="imagenes" className='flex flex-col items-center w-280 mt-6 rounded-lg border-3 border-rosa shadow-md/20'>
             <article className='flex flex-row shadow-md/20 justify-between items-center'>
               <div className='p-8 flex flex-col bg-rosa text-white w-1/2 space-y-6'>
                 <h2>La experiencia HAPPINES&Co.</h2>
@@ -46,7 +46,7 @@ createRoot(document.getElementById('root')).render(
           </section>
 
           <h3 className='mt-30'>El personal</h3>
-          <section name="personal" className='mt-10 p-4 flex flex-col w-280 h-fit border-3 border-rosa rounded-lg'>
+          <section name="personal" className='mt-10 p-4 flex flex-col w-280 h-fit border-3 border-rosa rounded-lg shadow-md/20'>
             <Personal 
             nombre="Héctor"
             cargo="Diseñador"

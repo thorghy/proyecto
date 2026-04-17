@@ -19,7 +19,6 @@ createRoot(document.getElementById('root')).render(
         <Lateral />
         <section name="principal" className="w-full h-fit pb-10">
             <EventoDestacado/>
-            <OpcionesBusqueda/>
             <Eventos mostrarEventosProximos={true} />
         </section>
       </main>

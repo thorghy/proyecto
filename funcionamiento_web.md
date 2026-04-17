@@ -18,8 +18,7 @@ Al entrar a cualquier página de la web que muestre eventos, la web hace un bucl
 pasa el evento junto a sus atributos al componente necesario para que él muestre la información del evento.
 
 #### Ejemplo
-Para las tarjetas de evento, la web lee los eventos uno por uno y llama al componente "TarjetaEvento" uno por uno
-pasándole 3 parámentros, uno de ellos siendo el objeto evento.
+Para las tarjetas de evento, la web lee los eventos uno por uno y llama al componente "TarjetaEvento" uno por uno, pasándole 3 parámentros, uno de ellos siendo el objeto evento.
 ![Código de la sección de Eventos](./documentacion/eventos-pagina.png)
 
 El componente recibe el parámetro del evento. Este es un objeto que contiene todas las propiedades disponibles del archivo JSON.
