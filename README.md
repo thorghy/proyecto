@@ -6,14 +6,15 @@
 
 ### Índice
 - BASES
-    - [Archivo SQL](./bases/proyecto.sql)
-    - [Esquema ER](./bases/entidad-relacion.dia)
+    - [Archivo SQL](./bases-de-datos/proyecto.sql)
+    - [Esquema ER](./bases-de-datos/entidad-relacion.dia)
 - PROGRAMACIÓN
-    - [Main](./java/proyecto/src/App.java)
+    - [Main](./programacion/proyecto/src/App.java)
 - MARCAS
-    - [Carpeta de la Web](./web2.0/)
+    - [Carpeta de la Web](./lenguaje-de-marcas/web2.0/)
+    - [Archivo JSON de los eventos](./lenguaje-de-marcas/web2.0/datos/eventos.json)
 - RSS
-    - [Archivo RSS](./web2.0/rss/eventos.rss)
+    - [Archivo RSS](./rss/eventos.rss)
 
 ## Lenguaje de marcas
 El apartado de lenguaje de marcas (la web) se creó usando React y por tanto debe ejecutarse en un servidor local de Node.js. Es necesario tener Node.js instalado en el equipo.
