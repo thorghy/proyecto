@@ -1,4 +1,4 @@
-# PROYECTO DE 1ºDAM 🏗
+# PROYECTO DE 1ºDAM 🎭
 
 ### Enlaces
 - [Informe](./documentacion/Informe.docx)
@@ -18,7 +18,8 @@
 ## Lenguaje de marcas
 El apartado de lenguaje de marcas (la web) se creó usando React y por tanto debe ejecutarse en un servidor local de Node.js. Es necesario tener Node.js instalado en el equipo.
 Para consultar si tiene Node.js instalado, ejecute el sigiuente comando en command prompt:
-`node -vs`
+`node -v`
+Si no tiene Node.js instalado, descárguelo e instálelo desde la web oficial: https://nodejs.org/en/download
 
 ### Instalación y uso de la web
 1. Descargar el .zip del repositorio.
