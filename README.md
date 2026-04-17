@@ -1,8 +1,7 @@
 # PROYECTO DE 1ºDAM 🏗
 
-### [Informe](./documentacion/Informe.docx)
-
 ### Enlaces
+- [Informe](./documentacion/Informe.docx)
 - [Proyecto de Figma](https://www.figma.com/proto/Y1YnbUeK0Yd82P8Jxwiqij/proyecto)
 
 ### Índice
