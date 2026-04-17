@@ -68,14 +68,14 @@
   { 
     "id": 5,
     "titulo": "Piruetas robóticas",
-    "descripcionCorta": "Diseña y construye un robot capaz de realizar piruetas con precisión milimétrica.",
-    "descripcionLarga": "",
+    "descripcionCorta": "Visita la exposición de robots que hacen piruetas. Diseña y construye un robot capaz de realizar piruetas con precisión milimétrica.",
+    "descripcionLarga": "Visita la exposición de robots que hacen piruetas. Diseña y construye un robot capaz de realizar piruetas con precisión milimétrica. La persona que haga el robot capaz de hacer más piruetas en un minuto, se lleva un premio de 100€ y un aplauso.",
     "fecha": {
       "fechaLarga": "15 de junio de 2026",
       "fechaCorta": "15/6/2026"
     },
     "lugar": "Avilés",
-    "categoria": "Actividades",
+    "categoria": "Exposiciones",
     "poster": "robot.jpg",
     "galeria": null
   },

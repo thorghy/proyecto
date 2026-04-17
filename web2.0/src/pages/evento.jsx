@@ -15,7 +15,7 @@ const idEvento = parametrosURL.get("id");
 const evento = datosEventos.find(event => event.id == idEvento);
 console.log(evento);
 
-const imagenPath = "src/assets/images/imagenesEventos/" + evento.id + "/"+ evento.poster
+const imagenPath = "src/assets/images/imagenesEventos/" + evento.id + "/" + evento.poster
 
 const categoriasColor = new Map([
   ["musica", "rosa"],
@@ -59,7 +59,7 @@ createRoot(document.getElementById('root')).render(
             <p className='mt-4 text-lg'>{evento.descripcionLarga}</p>
           </section>
           <section name="seccion-galeria" className='mt-20'>
-            <VisualizadorGaleria evento={evento} galeria={evento.galeria}/>
+            <VisualizadorGaleria evento={evento} galeria={evento.galeria} />
           </section>
         </section>
       </main>

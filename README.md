@@ -3,7 +3,7 @@
 ### [Informe](./documentacion/Informe.docx)
 
 ### Enlaces
--- [Proyecto de Figma](https://www.figma.com/proto/Y1YnbUeK0Yd82P8Jxwiqij/proyecto)
+- [Proyecto de Figma](https://www.figma.com/proto/Y1YnbUeK0Yd82P8Jxwiqij/proyecto)
 
 ### Índice
 - BASES
@@ -12,8 +12,9 @@
 - PROGRAMACIÓN
     - [Main](./java/proyecto/src/App.java)
 - MARCAS
-    - [Index](./web2.0/index.html)
+    - [Carpeta de la Web](./web2.0/)
 - RSS
+    - [Archivo RSS](./web2.0/rss/eventos.rss)
 
 ## Lenguaje de marcas
 El apartado de lenguaje de marcas (la web) se creó usando React y por tanto debe ejecutarse en un servidor local de Node.js. Es necesario tener Node.js instalado en el equipo.
